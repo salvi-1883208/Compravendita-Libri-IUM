@@ -1,24 +1,41 @@
 package com.example.compravendita_libri_ium;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.content.res.ResourcesCompat;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
-    String[] name = {"AAA", "BBBasd", "auif", "aosfpnnn", "nobjv"};
+    private ListView listView;
+    private String[] name = {"AAA", "BBBasd", "auif", "aosfpnnn", "nobjv"};
 
-    ArrayAdapter<String> arrayAdapter;
+    private ArrayAdapter<String> arrayAdapter;
+
+    // Create a message handling object as an anonymous class.
+    private OnItemClickListener messageClickedHandler = new OnItemClickListener() {
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+            // Do something in response to the click
+            Intent intent = new Intent(MainActivity.this, SelectedFromListActivity.class);
+
+            String selectedName = listView.getItemAtPosition(position).toString();
+
+            //Like a dictionary
+            intent.putExtra("SELECTED", selectedName);
+
+            //Start the next activity
+            startActivity(intent);
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, name);
         listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(messageClickedHandler);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
