@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     private final String[] name = {"AAA", "BBBasd", "auif", "aosfpnnn", "nobjv"};
-    private Button button_vendi_libro;
 
     private ArrayAdapter<String> arrayAdapter;
 
@@ -49,19 +48,6 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(messageClickedHandler);
-
-        button_vendi_libro = findViewById(R.id.button_vendi_libro);
-        button_vendi_libro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openOrdersList();
-            }
-        });
-    }
-
-    public void openOrdersList(){
-        Intent intent = new Intent(this, OrdersActivity.class);
-        startActivity(intent);
     }
 
 
