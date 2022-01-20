@@ -9,16 +9,14 @@ public class BooksToSell {
     private static List<Book> books;
 
     private BooksToSell() {
-        books.add(new Book("Algoritmi e strutture dati", 2009, "Maurizio Rossi", "Cittàstudi", "7406713066", "Algoritmi"));
-        books.add(new Book("Elementi di Fisica", 2008, "Claudio Gialli", "Cittàstudi", "8737592865", "Fisica"));
-        books.add(new Book("Lezioni di Fisica I", 2008, "Mario Rossi", "Zanichelli", "0123456789", "Fisica"));
-        books.add(new Book("Lezioni di Fisica I", 2011, "Mario Rossi", "Zanichelli", "10234789456", "Fisica"));
-        books.add(new Book("Analisi Matematica I", 2005, " Rossi", "Zanichelli", "0864297531", "Algebra"));
+        books.add(Books.FISICA_I_2008.getBook());
+        books.add(Books.FISICA_I_2011.getBook());
+        books.add(Books.FISICA_I_2008.getBook());
     }
 
     //Singleton
     public static BooksToSell getInstance() {
-        if(instance == null)
+        if (instance == null)
             instance = new BooksToSell();
         return instance;
     }

@@ -1,4 +1,4 @@
-package com.example.compravendita_libri_ium;
+package com.example.compravendita_libri_ium.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -11,8 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.compravendita_libri_ium.R;
 
 public class MainActivity extends AppCompatActivity {
 
