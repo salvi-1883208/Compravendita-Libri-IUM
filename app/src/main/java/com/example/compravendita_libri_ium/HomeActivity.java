@@ -11,6 +11,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getActionBar().setTitle("Sezione compravendita libri");
+        getSupportActionBar().setTitle("Sezione compravendita libri");
+    }
+
+    public void onOrdiniEffettuatiClick()
+    {
+
     }
 }
