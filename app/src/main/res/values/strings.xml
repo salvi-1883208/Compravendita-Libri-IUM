@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Compravendita-Libri-IUM</string>
+    <string name="annunci_inseriti">Annunci Inseriti</string>
+    <string name="ordini_effettuati">Ordini Effettuati</string>
+    <string name="acquista_libro">Acquista Libro</string>
+    <string name="vendi_libro">Vendi Libro</string>
 </resources>
