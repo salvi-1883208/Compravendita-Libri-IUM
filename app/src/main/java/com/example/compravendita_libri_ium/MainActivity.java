@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
             //Start the next activity
             startActivity(intent);
-
         }
     };
 
