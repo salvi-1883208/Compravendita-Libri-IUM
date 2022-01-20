@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="sapienza">#822434</color>
+    <color name="darkSapienza">#6E1020</color>
 </resources>
