@@ -16,12 +16,12 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
-    private String[] name = {"AAA", "BBBasd", "auif", "aosfpnnn", "nobjv"};
+    private final String[] name = {"AAA", "BBBasd", "auif", "aosfpnnn", "nobjv"};
 
     private ArrayAdapter<String> arrayAdapter;
 
     // Create a message handling object as an anonymous class.
-    private OnItemClickListener messageClickedHandler = new OnItemClickListener() {
+    private final OnItemClickListener messageClickedHandler = new OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             // Do something in response to the click
             Intent intent = new Intent(MainActivity.this, SelectedFromListActivity.class);
