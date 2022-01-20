@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button_ordini_eff"
         android:layout_width="214dp"
         android:layout_height="66dp"
         android:text="@string/ordini_effettuati"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.819" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_ordini_ins"
         android:layout_width="214dp"
         android:layout_height="66dp"
         android:text="@string/annunci_inseriti"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.819" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_acquista_libro"
         android:layout_width="369dp"
         android:layout_height="103dp"
         android:text="@string/acquista_libro"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.599" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_vendi_libro"
         android:layout_width="369dp"
         android:layout_height="101dp"
         android:text="@string/vendi_libro"
