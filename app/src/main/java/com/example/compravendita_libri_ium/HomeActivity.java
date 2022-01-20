@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
-    private Button button_vendi_libro;
+    private Button button_ordini_eff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,8 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Sezione compravendita libri");
 
-        button_vendi_libro = findViewById(R.id.button_vendi_libro);
-        button_vendi_libro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openOrdersList();
-            }
-        });
+        button_ordini_eff = findViewById(R.id.button_ordini_eff);
+        button_ordini_eff.setOnClickListener(view -> openOrdersList());
     }
 
     public void openOrdersList(){
