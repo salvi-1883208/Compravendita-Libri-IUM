@@ -19,4 +19,16 @@ public class Order {
     public AdBase getAdBase() {
         return adBase;
     }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public int getTimeRemaining() {
+        return timeRemaining;
+    }
+
+    public void complete() {
+        completed = true;
+    }
 }
