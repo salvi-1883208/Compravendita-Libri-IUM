@@ -14,10 +14,11 @@
             android:name=".activities.AdsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.OrdersActivity"
+            android:name=".activities.HomeActivity"
+
             android:exported="false" />
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.OrdersActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
