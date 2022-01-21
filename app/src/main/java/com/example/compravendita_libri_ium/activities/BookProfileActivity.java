@@ -6,11 +6,12 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.databinding.ActivityInfoOrderBinding;
 
 public class BookProfileActivity extends AppCompatActivity {
 
-    ActivityInfoOrderBinding binding;
+    private ActivityInfoOrderBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,21 +23,12 @@ public class BookProfileActivity extends AppCompatActivity {
 
         if(intent != null){
 
-            String title = intent.getStringExtra("title");        //praticamente gli passi quello che hai messo a putExtra nel primo argomento
-            String author = intent.getStringExtra("author");
-            String publisher = intent.getStringExtra("publisher");
-            String isbn = intent.getStringExtra("isbn");
-            String subject = intent.getStringExtra("subject");
-            String condition = intent.getStringExtra("condition");
-            String sub_condition = intent.getStringExtra("sub condition");
-            String price = intent.getStringExtra("price");
-            String meeting_place = intent.getStringExtra("meeting place");
-            String seller = intent.getStringExtra("seller");
-            Integer time_remaining = intent.getIntExtra("time remaining", 0);
+            Order order = (Order)intent.getParcelableExtra("order");
 
-            binding.titleProfile.setText(title);
-            //QUA VANNO BINDATE TUTTI I PEZZI DELLA SCHERMATA DELL'ORDINE E POI METTERCI I VALORI SCRITTI SOPRA^^^^^^
-            //https://youtu.be/RHqGiWluAzU?t=1074
+            binding.titleProfile.setText(order.getAdBase().getBook().toString());
+            binding.bookProfilePhoto.setImageResource(order.getAdBase().getPhotos()[0]);
+
+            getSupportActionBar().setTitle(order.getAdBase().getBook().getTitle());
 
         }
     }

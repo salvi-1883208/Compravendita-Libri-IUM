@@ -60,7 +60,7 @@ public class Book implements Parcelable {
 
     @Override
     public String toString() {
-        return "\nTitolo:\t" + title + "\nEdizione:\t" + edition + "\nAutore:\t" + author + "\nEditore:\t" + publisher + "\nISBN:\t" + isbn + '\n';
+        return "\nTitolo: " + title + "\nEdizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn + '\n';
     }
 
     @Override

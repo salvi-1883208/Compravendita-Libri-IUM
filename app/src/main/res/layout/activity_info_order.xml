@@ -19,6 +19,7 @@
         android:layout_below="@+id/book_profile_photo"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
+        android:textSize="20dp"
         android:text="" />
 
     <RelativeLayout

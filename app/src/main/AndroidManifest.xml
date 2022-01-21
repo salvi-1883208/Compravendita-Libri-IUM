@@ -17,6 +17,9 @@
             android:name=".activities.OrdersActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.BookProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.HomeActivity"
             android:exported="true">
             <intent-filter>
