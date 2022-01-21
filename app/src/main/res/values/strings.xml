@@ -4,4 +4,12 @@
     <string name="ordini_effettuati">Ordini Effettuati</string>
     <string name="acquista_libro">Acquista Libro</string>
     <string name="vendi_libro">Vendi Libro</string>
+    <string name="logo_sapienza">TODO</string>
+    <string name="logo__sapienza">logo_sapienza</string>
+    <string name="profilo_utente">Profilo \nUtente</string>
+    <string name="annunci_ninseriti">Annunci \nInseriti</string>
+    <string name="ordini_neffettuati">Ordini \nEffettuati</string>
+    <string name="compra_nun_libro">Compra \nun Libro</string>
+    <string name="vendi_nun_libro">Vendi \nun Libro</string>
+
 </resources>
