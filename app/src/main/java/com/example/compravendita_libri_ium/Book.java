@@ -2,12 +2,12 @@ package com.example.compravendita_libri_ium;
 
 public class Book {
 
-    private String title;
     private int edition;
-    private String author;
-    private String publisher;
     private String isbn;
+    private String title;
+    private String author;
     private String subject;
+    private String publisher;
 
 
     public Book(String title, int edition, String author, String publisher, String isbn, String subject) {
@@ -17,6 +17,14 @@ public class Book {
         this.publisher = publisher;
         this.isbn = isbn;
         this.subject = subject;
+    }
+
+    public UsedBook toUsedBook(BookCondition condition, BookSubCondition subCondition) {
+        return new UsedBook(this, condition, subCondition);
+    }
+
+    public UsedBook toUsedBook(BookCondition condition) {
+        return new UsedBook(this, condition);
     }
 
     public String getTitle() {
@@ -45,6 +53,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "\nTitolo:\t" + title + "\nEdizione:\t" + edition + "\nAutore:\t" + author + "\nEditore:\t" + publisher + "\nISBN:\t" + isbn;
+        return "\nTitolo:\t" + title + "\nEdizione:\t" + edition + "\nAutore:\t" + author + "\nEditore:\t" + publisher + "\nISBN:\t" + isbn + '\n';
     }
 }

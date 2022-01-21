@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".activities.HomeActivity">
 
 
     <Button
         android:id="@+id/button_ordini_eff"
-        android:layout_width="214dp"
-        android:layout_height="66dp"
+        android:layout_width="193dp"
+        android:layout_height="67dp"
         android:text="@string/ordini_effettuati"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +20,9 @@
         app:layout_constraintVertical_bias="0.819" />
 
     <Button
-        android:id="@+id/button_ordini_ins"
-        android:layout_width="214dp"
-        android:layout_height="66dp"
+        android:id="@+id/button_annunci_ins"
+        android:layout_width="193dp"
+        android:layout_height="67dp"
         android:text="@string/annunci_inseriti"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

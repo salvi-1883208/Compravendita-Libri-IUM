@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.OrdersActivity">
+    tools:context=".activities.AdsActivity">
 
     <ListView
-        android:id="@+id/orders_listview"
+        android:id="@+id/listview_ads"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/orders_listitem"/>
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

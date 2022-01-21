@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompravenditaLibriIUM">
         <activity
-            android:name=".OrdersActivity"
+            android:name=".activities.AdsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectedFromListActivity"
+            android:name=".activities.SelectedFromListActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="false" />
     </application>
 

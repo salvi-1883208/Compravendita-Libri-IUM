@@ -1,10 +1,12 @@
-package com.example.compravendita_libri_ium;
+package com.example.compravendita_libri_ium.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.compravendita_libri_ium.R;
 
 public class SelectedFromListActivity extends AppCompatActivity {
 
