@@ -35,10 +35,8 @@ public class AdBase {
 
     @Override
     public String toString() {
-        return "AdBase{" +
-                ", book=" + book +
-                ", price=" + price +
-                ", meetingPlace=" + meetingPlace +
-                '}';
+        return book +
+                "Prezzo: " + price + '€' +
+                "\nPunto di incontro: " + meetingPlace;
     }
 }

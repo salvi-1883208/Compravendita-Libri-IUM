@@ -21,4 +21,8 @@ public class Ad {
         approved = true;
     }
 
+    @Override
+    public String toString() {
+        return adBase + "\nApprovato: " + approved + "\n";
+    }
 }
