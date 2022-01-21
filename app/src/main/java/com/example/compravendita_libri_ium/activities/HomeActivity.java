@@ -4,35 +4,61 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.compravendita_libri_ium.R;
 
 public class HomeActivity extends AppCompatActivity {
-    private Button button_ordini_eff;
-    private Button button_annunci_ins;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         getSupportActionBar().setTitle("Sezione compravendita libri");
 
-       // button_ordini_eff = findViewById(R.id.button_ordini_eff);
-        //button_ordini_eff.setOnClickListener(view -> openOrdersList());
+        LinearLayout vendi_libro = findViewById(R.id.vendi_libri);
+        vendi_libro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent OpenVendita = new Intent(HomeActivity.this,SelectedFromListActivity.class);
+                startActivity(OpenVendita);
 
-        //button_annunci_ins = findViewById(R.id.button_annunci_ins);
-       // button_annunci_ins.setOnClickListener(view -> openAdsList());
-    }
+            }
+        });
 
-    private void openOrdersList(){
-        Intent intent = new Intent(this, OrdersActivity.class);
-        startActivity(intent);
-    }
+        LinearLayout compra_libro = findViewById(R.id.compra_libri);
+        compra_libro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    private void openAdsList() {
-        Intent intent = new Intent(this, AdsActivity.class);
-        startActivity(intent);
+            }
+        });
+
+        LinearLayout ordini_effettuati = findViewById(R.id.ordini_effettuati);
+        ordini_effettuati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent OpenOrdini = new Intent(HomeActivity.this,OrdersActivity.class);
+                startActivity(OpenOrdini);
+            }
+        });
+
+        LinearLayout annunci_inseriti = findViewById(R.id.annunci_inseriti);
+        annunci_inseriti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        LinearLayout profilo_utente = findViewById(R.id.profilo_utente);
+        profilo_utente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }
