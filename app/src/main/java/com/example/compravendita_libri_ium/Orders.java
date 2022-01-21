@@ -12,4 +12,7 @@ public enum Orders {
         this.order = order;
     }
 
+    public Order getOrder() {
+        return order;
+    }
 }
