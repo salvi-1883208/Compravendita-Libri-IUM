@@ -6,15 +6,16 @@ import java.util.Arrays;
 
 public class Ad {
     private boolean approved = false;
+    private boolean completed = false;
     private UsedBook book;
     private double price;
-    private Image[] photos;
+    private int[] photosId;
     private MeetingPlace meetingPlace;
 
-    public Ad(UsedBook book, double price, Image[] photos, MeetingPlace meetingPlace){
+    public Ad(UsedBook book, double price, int[] photosId, MeetingPlace meetingPlace) {
         this.book = book;
         this.price = price;
-        this.photos = photos;
+        this.photosId = photosId;
         this.meetingPlace = meetingPlace;
     }
 
@@ -30,8 +31,8 @@ public class Ad {
         return price;
     }
 
-    public Image[] getPhotos() {
-        return photos;
+    public int[] getPhotos() {
+        return photosId;
     }
 
     public MeetingPlace getMeetingPlace() {
@@ -42,13 +43,20 @@ public class Ad {
         approved = true;
     }
 
+    public void complete() throws Exception {
+        if (approved)
+            completed = true;
+        else
+            throw new Exception("You can't complete an order if the ad is not approved yet");
+    }
+
+
     @Override
     public String toString() {
         return "Ad{" +
                 "approved=" + approved +
                 ", book=" + book +
                 ", price=" + price +
-                ", photos=" + Arrays.toString(photos) +
                 ", meetingPlace=" + meetingPlace +
                 '}';
     }
