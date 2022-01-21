@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.compravendita_libri_ium.R;
+import com.example.compravendita_libri_ium.sell_activity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         vendi_libro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent OpenVendita = new Intent(HomeActivity.this,SelectedFromListActivity.class);
+                Intent OpenVendita = new Intent(HomeActivity.this, sell_activity.class);
                 startActivity(OpenVendita);
 
             }
