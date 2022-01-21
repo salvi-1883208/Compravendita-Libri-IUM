@@ -19,11 +19,11 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Sezione compravendita libri");
 
-        button_ordini_eff = findViewById(R.id.button_ordini_eff);
-        button_ordini_eff.setOnClickListener(view -> openOrdersList());
+       // button_ordini_eff = findViewById(R.id.button_ordini_eff);
+        //button_ordini_eff.setOnClickListener(view -> openOrdersList());
 
-        button_annunci_ins = findViewById(R.id.button_annunci_ins);
-        button_annunci_ins.setOnClickListener(view -> openAdsList());
+        //button_annunci_ins = findViewById(R.id.button_annunci_ins);
+       // button_annunci_ins.setOnClickListener(view -> openAdsList());
     }
 
     private void openOrdersList(){
