@@ -1,6 +1,9 @@
 package com.example.compravendita_libri_ium;
 
-public class Seller {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Seller implements Parcelable {
 
     private String name;
     private int id;
@@ -23,4 +26,40 @@ public class Seller {
     public int getReputation() {
         return reputation;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeInt(this.id);
+        dest.writeInt(this.reputation);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.name = source.readString();
+        this.id = source.readInt();
+        this.reputation = source.readInt();
+    }
+
+    protected Seller(Parcel in) {
+        this.name = in.readString();
+        this.id = in.readInt();
+        this.reputation = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Seller> CREATOR = new Parcelable.Creator<Seller>() {
+        @Override
+        public Seller createFromParcel(Parcel source) {
+            return new Seller(source);
+        }
+
+        @Override
+        public Seller[] newArray(int size) {
+            return new Seller[size];
+        }
+    };
 }

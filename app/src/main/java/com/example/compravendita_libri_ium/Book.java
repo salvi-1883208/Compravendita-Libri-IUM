@@ -1,6 +1,9 @@
 package com.example.compravendita_libri_ium;
 
-public class Book {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Book implements Parcelable {
 
     private int edition;
     private String isbn;
@@ -51,8 +54,57 @@ public class Book {
         return subject;
     }
 
+    public String getDescription() {
+        return "\nEdizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn + '\n';
+    }
+
     @Override
     public String toString() {
         return "\nTitolo:\t" + title + "\nEdizione:\t" + edition + "\nAutore:\t" + author + "\nEditore:\t" + publisher + "\nISBN:\t" + isbn + '\n';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.edition);
+        dest.writeString(this.isbn);
+        dest.writeString(this.title);
+        dest.writeString(this.author);
+        dest.writeString(this.subject);
+        dest.writeString(this.publisher);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.edition = source.readInt();
+        this.isbn = source.readString();
+        this.title = source.readString();
+        this.author = source.readString();
+        this.subject = source.readString();
+        this.publisher = source.readString();
+    }
+
+    protected Book(Parcel in) {
+        this.edition = in.readInt();
+        this.isbn = in.readString();
+        this.title = in.readString();
+        this.author = in.readString();
+        this.subject = in.readString();
+        this.publisher = in.readString();
+    }
+
+    public static final Parcelable.Creator<Book> CREATOR = new Parcelable.Creator<Book>() {
+        @Override
+        public Book createFromParcel(Parcel source) {
+            return new Book(source);
+        }
+
+        @Override
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
 }

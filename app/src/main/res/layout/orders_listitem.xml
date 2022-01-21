@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +20,6 @@
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:src="@drawable/lezioni_di_fisica_front"/>
-
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -51,8 +49,10 @@
             android:id="@+id/order_expire_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="45dp"
+            android:padding="15dp"
             android:text="5 ore alla scadenza">
 
         </TextView>

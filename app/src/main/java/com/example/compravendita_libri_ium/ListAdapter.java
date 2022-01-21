@@ -11,14 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ListAdapter extends ArrayAdapter<Order> {
 
     //constuctor
-    public ListAdapter(Context context, ArrayList<Order> ordersArrayList){
+    public ListAdapter(Context context, ArrayList<Order> ordersArrayList) {
 
         super(context, R.layout.orders_listitem, ordersArrayList);
     }
@@ -28,10 +26,8 @@ public class ListAdapter extends ArrayAdapter<Order> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         Order order = getItem(position);
-        if(convertView == null){        //???
-
+        if (convertView == null) {        //???
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.orders_listitem, parent, false);
-
         }
 
         ImageView imageView = convertView.findViewById(R.id.book_photo);
@@ -39,16 +35,19 @@ public class ListAdapter extends ArrayAdapter<Order> {
         TextView bookAuthor = convertView.findViewById(R.id.book_infos);
         TextView orders_expiring_time = convertView.findViewById(R.id.order_expire_countdown);
 
-        //imageView.setImageResource(ad.getPhotos()[0]);
+        imageView.setImageResource(order.getAdBase().getPhotos()[0]);
         bookTitle.setText(order.getAdBase().getBook().getTitle());
         bookAuthor.setText(order.getAdBase().getBook().getAuthor());
-        orders_expiring_time.setText(order.getTimeRemaining());
-
-        //imageView.setImageResource(ad.getPhotos()[0]);
-        bookTitle.setText(order.getAdBase().getBook().getTitle());
-        bookAuthor.setText(order.getAdBase().getBook().getAuthor());
-        orders_expiring_time.setText(order.getTimeRemaining());
+        orders_expiring_time.setText(minutesToString(order.getTimeRemaining()));
 
         return convertView;
+    }
+
+    private String minutesToString(int t) {
+        int hours = t / 60;
+        int minutes = t % 60;
+        if (hours > 24)
+            return (hours / 24) + " giorni rimanenti";
+        return (hours + ":" + minutes + " left");
     }
 }

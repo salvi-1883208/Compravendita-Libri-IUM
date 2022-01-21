@@ -46,6 +46,8 @@ public class AdsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        getSupportActionBar().setTitle("Annunci Inseriti");
+
         getAds();
 
         super.onCreate(savedInstanceState);

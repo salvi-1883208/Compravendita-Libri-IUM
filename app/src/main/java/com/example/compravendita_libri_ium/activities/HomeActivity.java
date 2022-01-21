@@ -49,7 +49,8 @@ public class HomeActivity extends AppCompatActivity {
         annunci_inseriti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent OpenAnnunci = new Intent(HomeActivity.this, AdsActivity.class);
+                startActivity(OpenAnnunci);
             }
         });
 

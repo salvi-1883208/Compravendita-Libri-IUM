@@ -1,6 +1,9 @@
 package com.example.compravendita_libri_ium;
 
-public class UsedBook {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UsedBook implements Parcelable {
 
     private Book book;
     private BookCondition condition;
@@ -53,4 +56,44 @@ public class UsedBook {
     public String toString() {
         return book.toString() + "Condizione:\t" + condition.getDescription() + "\nCondizione specifica:\t" + subCondition.getDescription() + '\n';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(this.book, flags);
+        dest.writeInt(this.condition == null ? -1 : this.condition.ordinal());
+        dest.writeInt(this.subCondition == null ? -1 : this.subCondition.ordinal());
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.book = source.readParcelable(Book.class.getClassLoader());
+        int tmpCondition = source.readInt();
+        this.condition = tmpCondition == -1 ? null : BookCondition.values()[tmpCondition];
+        int tmpSubCondition = source.readInt();
+        this.subCondition = tmpSubCondition == -1 ? null : BookSubCondition.values()[tmpSubCondition];
+    }
+
+    protected UsedBook(Parcel in) {
+        this.book = in.readParcelable(Book.class.getClassLoader());
+        int tmpCondition = in.readInt();
+        this.condition = tmpCondition == -1 ? null : BookCondition.values()[tmpCondition];
+        int tmpSubCondition = in.readInt();
+        this.subCondition = tmpSubCondition == -1 ? null : BookSubCondition.values()[tmpSubCondition];
+    }
+
+    public static final Parcelable.Creator<UsedBook> CREATOR = new Parcelable.Creator<UsedBook>() {
+        @Override
+        public UsedBook createFromParcel(Parcel source) {
+            return new UsedBook(source);
+        }
+
+        @Override
+        public UsedBook[] newArray(int size) {
+            return new UsedBook[size];
+        }
+    };
 }
