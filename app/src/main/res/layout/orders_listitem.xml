@@ -14,17 +14,17 @@
             android:layout_marginVertical="10dp"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/book_photo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/lezioni_di_fisica_front"/>
+                android:layout_marginStart="5dp"
+                android:src="@drawable/lezioni_di_fisica_front" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Libro"
-                    android:textSize="26dp"
+                    android:textSize="23sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -40,7 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:text="Info sul libro" />
+                    android:text="Info sul libro"
+                    android:lineSpacingExtra="3dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -49,9 +50,9 @@
             android:id="@+id/order_expire_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="0dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="45dp"
+            android:layout_marginEnd="0dp"
             android:padding="15dp"
             android:text="5 ore alla scadenza">
 

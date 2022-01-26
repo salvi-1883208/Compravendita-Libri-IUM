@@ -1,6 +1,9 @@
 package com.example.compravendita_libri_ium;
 
+import static android.graphics.Color.rgb;
+
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,15 +35,25 @@ public class ListAdapter extends ArrayAdapter<Order> {
 
         ImageView imageView = convertView.findViewById(R.id.book_photo);
         TextView bookTitle = convertView.findViewById(R.id.book_title);       ///???https://youtu.be/RHqGiWluAzU?t=565
-        TextView bookAuthor = convertView.findViewById(R.id.book_infos);
+        TextView bookEditionPrice = convertView.findViewById(R.id.book_infos);
         TextView orders_expiring_time = convertView.findViewById(R.id.order_expire_countdown);
 
         imageView.setImageResource(order.getAdBase().getPhotos()[0]);
         bookTitle.setText(order.getAdBase().getBook().getTitle());
-        bookAuthor.setText(order.getAdBase().getBook().getAuthor());
-        orders_expiring_time.setText(minutesToString(order.getTimeRemaining()));
+        bookEditionPrice.setText(editionPriceInfo(order));
+        if (order.isCompleted()) {
+            orders_expiring_time.setText("Ordine Completato");
+            orders_expiring_time.setTypeface(null, Typeface.BOLD);
+        } else
+            orders_expiring_time.setText(minutesToString(order.getTimeRemaining()));
 
         return convertView;
+    }
+
+    private String editionPriceInfo(Order order) {
+        String edition = Integer.toString(order.getAdBase().getBook().getEdition());
+        String price = Double.toString(order.getAdBase().getPrice());
+        return "Edizione: " + edition + "\nPrezzo: " + price + "€";
     }
 
     private String minutesToString(int t) {

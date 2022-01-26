@@ -3,20 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/book_profile_photo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/lezioni_di_fisica_front"
-        android:layout_marginTop="20dp"/>
-
     <TextView
         android:id="@+id/title_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/book_profile_photo"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -28,5 +19,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="45dp"/>
 
 </RelativeLayout>

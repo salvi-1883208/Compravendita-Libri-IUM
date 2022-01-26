@@ -31,8 +31,9 @@ public class Order implements Parcelable {
         return timeRemaining;
     }
 
-    public void complete() {
+    public Order complete() {
         completed = true;
+        return this;
     }
 
     @Override
