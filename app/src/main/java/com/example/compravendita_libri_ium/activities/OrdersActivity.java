@@ -9,7 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import com.example.compravendita_libri_ium.ListAdapter;
+import com.example.compravendita_libri_ium.OrdersListAdapter;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.Orders;
 import com.example.compravendita_libri_ium.R;
@@ -26,7 +26,6 @@ public class OrdersActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Ordini Effettuati");
 
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -37,9 +36,9 @@ public class OrdersActivity extends AppCompatActivity {
             orderArrayList.add(order.getOrder());
         }
 
-        ListAdapter listAdapter = new ListAdapter(OrdersActivity.this, orderArrayList);
+        OrdersListAdapter ordersListAdapter = new OrdersListAdapter(OrdersActivity.this, orderArrayList);
 
-        binding.listview.setAdapter(listAdapter);
+        binding.listview.setAdapter(ordersListAdapter);
         binding.listview.setClickable(true);
         binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

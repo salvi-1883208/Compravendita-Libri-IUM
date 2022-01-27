@@ -16,10 +16,10 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends ArrayAdapter<Order> {
+public class OrdersListAdapter extends ArrayAdapter<Order> {
 
     //constuctor
-    public ListAdapter(Context context, ArrayList<Order> ordersArrayList) {
+    public OrdersListAdapter(Context context, ArrayList<Order> ordersArrayList) {
 
         super(context, R.layout.orders_listitem, ordersArrayList);
     }

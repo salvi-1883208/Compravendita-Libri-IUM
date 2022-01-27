@@ -5,18 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.RatingBar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.compravendita_libri_ium.ListAdapter;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerViewImageAdapter;
-import com.example.compravendita_libri_ium.UsedBook;
 import com.example.compravendita_libri_ium.databinding.ActivityInfoOrderBinding;
 
 public class BookProfileActivity extends AppCompatActivity {

@@ -55,12 +55,12 @@ public class Book implements Parcelable {
     }
 
     public String getDescription() {
-        return "\nEdizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn + '\n';
+        return "Edizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn;
     }
 
     @Override
     public String toString() {
-        return "Titolo: " + title + "\nEdizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn + '\n';
+        return "Titolo: " + title + "\nEdizione: " + edition + "\nAutore: " + author + "\nEditore: " + publisher + "\nISBN: " + isbn;
     }
 
     @Override
