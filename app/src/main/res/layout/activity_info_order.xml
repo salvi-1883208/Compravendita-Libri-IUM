@@ -4,28 +4,189 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/title_profile"
+        android:id="@+id/view1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Informazioni sul libro:"
+        android:textSize="22dp"
+        android:textStyle="bold" />
 
-    <RelativeLayout
-        android:id="@+id/relative_name"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/info_libro"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"/>
+        android:layout_below="@+id/view1"
+        android:layout_alignParentStart="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="eizione:ubfaudbo\noadfbnoaifdnoaindan\n"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/info_venditore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-4dp"
+        android:layout_marginRight="10dp"
+        android:text="pinco pallino\n123414"
+        android:textSize="18dp" />
+
+
+    <TextView
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:layout_alignStart="@id/info_venditore"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="10dp"
+        android:text="Venditore:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_venditore"
+        android:layout_alignStart="@id/info_venditore"
+        android:numStars="5"
+        android:rating="4"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/rating_bar"
+        android:layout_alignStart="@id/view1"
+        android:layout_marginTop="15dp"
+        android:background="#969FAA" />
+
+    <TextView
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line1"
+        android:layout_alignStart="@id/view1"
+        android:layout_marginTop="10dp"
+        android:text="Informazioni aggiuntive:"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view3"
+        android:layout_alignStart="@id/view3"
+        android:layout_marginTop="10dp"
+        android:text="Condizioni:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/more_info_libro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view4"
+        android:layout_alignStart="@id/view4"
+        android:text="usato come nuovo\nrovinato distrutto"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/view5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/more_info_libro"
+        android:layout_alignStart="@id/view3"
+        android:layout_marginTop="10dp"
+        android:text="Luogo d'incontro:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/meeting_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view5"
+        android:layout_alignStart="@id/view5"
+        android:text="Edificio la sapienza di roma -CUOAI"
+        android:textSize="18dp" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/meeting_place"
+        android:layout_alignStart="@id/view1"
+        android:layout_marginVertical="15dp"
+        android:background="#969FAA" />
+
+    <TextView
+        android:id="@+id/view6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line2"
+        android:layout_alignStart="@id/view1"
+        android:text="Prezzo: "
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line2"
+        android:layout_toEndOf="@id/view6"
+        android:text="12€"
+        android:textSize="18dp" />
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@id/view6"
+        android:layout_alignStart="@id/view1"
+        android:layout_marginVertical="15dp"
+        android:background="#969FAA" />
+
+    <TextView
+        android:id="@+id/view7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line3"
+        android:layout_alignStart="@id/view1"
+        android:text="Foto:"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_images"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="45dp"/>
+        android:layout_below="@id/view7"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/time_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycler_images"
+        android:layout_centerHorizontal="true"
+        android:text="Libro riservato ancora per: 1 giorno"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

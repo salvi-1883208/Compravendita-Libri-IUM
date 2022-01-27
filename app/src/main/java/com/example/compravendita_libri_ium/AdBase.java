@@ -1,26 +1,23 @@
 package com.example.compravendita_libri_ium;
 
-import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Arrays;
-
 public class AdBase implements Parcelable {
-    private UsedBook book;
+    private UsedBook usedBook;
     private double price;
     private int[] photosId;
     private MeetingPlace meetingPlace;
 
     public AdBase(UsedBook book, double price, int[] photosId, MeetingPlace meetingPlace) {
-        this.book = book;
+        this.usedBook = book;
         this.price = price;
         this.photosId = photosId;
         this.meetingPlace = meetingPlace;
     }
 
-    public UsedBook getBook() {
-        return book;
+    public UsedBook getUsedBook() {
+        return usedBook;
     }
 
     public double getPrice() {
@@ -37,7 +34,7 @@ public class AdBase implements Parcelable {
 
     @Override
     public String toString() {
-        return book +
+        return usedBook +
                 "Prezzo: " + price + '€' +
                 "\nPunto di incontro: " + meetingPlace;
     }
@@ -49,14 +46,14 @@ public class AdBase implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.book, flags);
+        dest.writeParcelable(this.usedBook, flags);
         dest.writeDouble(this.price);
         dest.writeIntArray(this.photosId);
         dest.writeInt(this.meetingPlace == null ? -1 : this.meetingPlace.ordinal());
     }
 
     public void readFromParcel(Parcel source) {
-        this.book = source.readParcelable(UsedBook.class.getClassLoader());
+        this.usedBook = source.readParcelable(UsedBook.class.getClassLoader());
         this.price = source.readDouble();
         this.photosId = source.createIntArray();
         int tmpMeetingPlace = source.readInt();
@@ -64,7 +61,7 @@ public class AdBase implements Parcelable {
     }
 
     protected AdBase(Parcel in) {
-        this.book = in.readParcelable(UsedBook.class.getClassLoader());
+        this.usedBook = in.readParcelable(UsedBook.class.getClassLoader());
         this.price = in.readDouble();
         this.photosId = in.createIntArray();
         int tmpMeetingPlace = in.readInt();

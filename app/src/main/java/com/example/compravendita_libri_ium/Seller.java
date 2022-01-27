@@ -28,6 +28,11 @@ public class Seller implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return name + "\n" + Integer.toString(id);
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }

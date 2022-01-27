@@ -54,7 +54,7 @@ public class UsedBook implements Parcelable {
 
     @Override
     public String toString() {
-        return book.toString() + "Condizione: " + condition.getDescription() + "\nCondizione specifica: " + subCondition.getDescription() + '\n';
+        return book.toString();
     }
 
     @Override

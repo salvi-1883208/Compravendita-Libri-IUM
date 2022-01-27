@@ -39,7 +39,7 @@ public class ListAdapter extends ArrayAdapter<Order> {
         TextView orders_expiring_time = convertView.findViewById(R.id.order_expire_countdown);
 
         imageView.setImageResource(order.getAdBase().getPhotos()[0]);
-        bookTitle.setText(order.getAdBase().getBook().getTitle());
+        bookTitle.setText(order.getAdBase().getUsedBook().getTitle());
         bookEditionPrice.setText(editionPriceInfo(order));
         if (order.isCompleted()) {
             orders_expiring_time.setText("Ordine Completato");
@@ -51,7 +51,7 @@ public class ListAdapter extends ArrayAdapter<Order> {
     }
 
     private String editionPriceInfo(Order order) {
-        String edition = Integer.toString(order.getAdBase().getBook().getEdition());
+        String edition = Integer.toString(order.getAdBase().getUsedBook().getEdition());
         String price = Double.toString(order.getAdBase().getPrice());
         return "Edizione: " + edition + "\nPrezzo: " + price + "€";
     }
