@@ -85,6 +85,21 @@ public class UsedBook implements Parcelable {
         this.subCondition = tmpSubCondition == -1 ? null : BookSubCondition.values()[tmpSubCondition];
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof UsedBook))
+            return false;
+
+        UsedBook usedBook = (UsedBook) o;
+
+        return usedBook.getTitle().equals(getTitle()) &&
+                usedBook.getAuthor().equals(getAuthor()) &&
+                usedBook.getEdition() == (getEdition());
+    }
+
     public static final Parcelable.Creator<UsedBook> CREATOR = new Parcelable.Creator<UsedBook>() {
         @Override
         public UsedBook createFromParcel(Parcel source) {

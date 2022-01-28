@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/drawable/close_x.xml" value="0.27" />
         <entry key="app/src/main/res/drawable/ic_arrow_back.xml" value="0.27" />
         <entry key="app/src/main/res/drawable/separator_line.xml" value="0.27" />
-        <entry key="app/src/main/res/layout/activity_ad_profile.xml" value="0.12638748738647831" />
+        <entry key="app/src/main/res/layout/activity_ad_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_ads.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_info_ad.xml" value="0.2609375" />

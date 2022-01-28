@@ -50,6 +50,19 @@ public class Ad implements Parcelable {
         this.adBase = in.readParcelable(AdBase.class.getClassLoader());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof Ad))
+            return false;
+
+        Ad ad = (Ad) o;
+
+        return adBase.equals(ad.getAdBase());
+    }
+
     public static final Parcelable.Creator<Ad> CREATOR = new Parcelable.Creator<Ad>() {
         @Override
         public Ad createFromParcel(Parcel source) {

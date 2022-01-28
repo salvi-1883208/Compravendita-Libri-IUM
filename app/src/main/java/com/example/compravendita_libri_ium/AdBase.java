@@ -72,6 +72,21 @@ public class AdBase implements Parcelable {
         this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof AdBase))
+            return false;
+
+        AdBase adBase = (AdBase) o;
+
+        return adBase.getUsedBook().equals(usedBook) &&
+                adBase.getMeetingPlace().equals(meetingPlace) &&
+                adBase.getPrice() == price;
+    }
+
     public static final Parcelable.Creator<AdBase> CREATOR = new Parcelable.Creator<AdBase>() {
         @Override
         public AdBase createFromParcel(Parcel source) {

@@ -1,16 +1,21 @@
 package com.example.compravendita_libri_ium.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
+import com.example.compravendita_libri_ium.ConfirmDeletionDialogFragment;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerViewImageAdapter;
 import com.example.compravendita_libri_ium.databinding.ActivityAdProfileBinding;
@@ -41,6 +46,22 @@ public class AdProfileActivity extends AppCompatActivity {
             binding.adMeetingPlace.setText(ad.getAdBase().getMeetingPlace().toString());
             binding.adPrice.setText(ad.getAdBase().getPriceString());
             binding.approvation.setText(approvation(ad));
+            binding.trashCan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AdProfileActivity.this);
+                    builder.setPositiveButton("Si", (dialog, id) -> {
+                        // User clicked OK button
+                        ActiveAds.getInstance().removeAd(ad);
+                        finish();
+                    });
+                    builder.setNegativeButton("No", (dialog, id) -> {
+                    });
+                    builder.setTitle("Sei sicuro di voler rimuovere l'annuncio?");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            });
 
             getSupportActionBar().setTitle(ad.getAdBase().getUsedBook().getTitle());
 

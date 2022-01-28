@@ -1,7 +1,6 @@
 package com.example.compravendita_libri_ium;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 public class AdsListAdapter extends ArrayAdapter<Ad> {
     //constuctor
     public AdsListAdapter(Context context, ArrayList<Ad> adsArrayList) {
-
         super(context, R.layout.ads_listitem, adsArrayList);
     }
 

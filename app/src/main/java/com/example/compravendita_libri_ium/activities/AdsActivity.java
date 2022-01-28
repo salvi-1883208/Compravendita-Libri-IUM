@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
 import com.example.compravendita_libri_ium.Ads;
 import com.example.compravendita_libri_ium.AdsListAdapter;
@@ -29,12 +30,8 @@ public class AdsActivity extends AppCompatActivity {
         binding = ActivityOrdersOrAdsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ArrayList<Ad> adsArrayList = new ArrayList<>();
-
-        //Riempio una lista con tutti gli annunci da mostrare
-        for (Ads ad : Ads.values()) {
-            adsArrayList.add(ad.getAd());
-        }
+        //Una lista con tutti gli annunci da mostrare
+        ArrayList<Ad> adsArrayList = ActiveAds.getInstance().getAds();
 
         AdsListAdapter adsListAdapter = new AdsListAdapter(AdsActivity.this, adsArrayList);
         binding.listview.setAdapter(adsListAdapter);
@@ -43,12 +40,21 @@ public class AdsActivity extends AppCompatActivity {
             Intent intent = new Intent(AdsActivity.this, AdProfileActivity.class);
             intent.putExtra("ad", adsArrayList.get(position));
             startActivity(intent);
+
         });
 
         binding.newOrderOrAd.setOnClickListener(view -> {
             Intent intent = new Intent(AdsActivity.this, NewAdActivity.class);
             startActivity(intent);
         });
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        //Do what you want on the refresh procedure here
+        finish();
+        startActivity(getIntent());
     }
 
     @Override
