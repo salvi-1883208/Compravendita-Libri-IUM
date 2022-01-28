@@ -49,7 +49,7 @@ public class AdsListAdapter extends ArrayAdapter<Ad> {
 
     private String editionPriceInfo(Ad ad) {
         String edition = Integer.toString(ad.getAdBase().getUsedBook().getEdition());
-        String price = Double.toString(ad.getAdBase().getPrice());
-        return "Edizione: " + edition + "\nPrezzo: " + price + "€";
+        String price = ad.getAdBase().getPriceString();
+        return "Edizione: " + edition + "\nPrezzo: " + price;
     }
 }

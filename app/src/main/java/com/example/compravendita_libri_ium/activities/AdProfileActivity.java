@@ -39,7 +39,7 @@ public class AdProfileActivity extends AppCompatActivity {
             binding.adInfoLibro.setText(ad.getAdBase().getUsedBook().toString());
             binding.adMoreInfoLibro.setText(adConditions(ad));
             binding.adMeetingPlace.setText(ad.getAdBase().getMeetingPlace().toString());
-            binding.adPrice.setText(Double.toString(ad.getAdBase().getPrice()) + "€");
+            binding.adPrice.setText(ad.getAdBase().getPriceString());
             binding.approvation.setText(approvation(ad));
 
             getSupportActionBar().setTitle(ad.getAdBase().getUsedBook().getTitle());

@@ -24,6 +24,10 @@ public class AdBase implements Parcelable {
         return price;
     }
 
+    public String getPriceString() {
+        return price % 1 == 0 ? Long.toString(Math.round(price)) + "€" : Double.toString(price) + "€";
+    }
+
     public int[] getPhotos() {
         return photosId;
     }
