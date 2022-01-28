@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.compravendita_libri_ium.BooksToSell;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityHomeBinding;
 import com.example.compravendita_libri_ium.databinding.ActivityInfoOrderBinding;
@@ -43,7 +44,6 @@ public class HomeActivity extends AppCompatActivity {
             Intent OpenAnnunci = new Intent(HomeActivity.this, AdsActivity.class);
             startActivity(OpenAnnunci);
         });
-
     }
 
     @Override

@@ -25,11 +25,11 @@ public class BooksToSell {
         return instance;
     }
 
-    public static List<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public static void addBook(Book book) {
+    public void addBook(Book book) {
         books.add(book);
     }
 }
