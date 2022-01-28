@@ -12,10 +12,11 @@
         <entry key="app/src/main/res/layout/activity_ads.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_info_ad.xml" value="0.2609375" />
-        <entry key="app/src/main/res/layout/activity_info_order.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_info_order.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2610734757686295" />
         <entry key="app/src/main/res/layout/activity_new_ad.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout/activity_orders.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_orders_or_ads.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout/activity_selected_from_list.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_sell.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/ads_listitem.xml" value="0.1" />
