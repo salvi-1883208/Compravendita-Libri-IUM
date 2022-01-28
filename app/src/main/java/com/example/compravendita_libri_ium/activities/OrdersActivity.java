@@ -41,16 +41,12 @@ public class OrdersActivity extends AppCompatActivity {
 
         OrdersListAdapter ordersListAdapter = new OrdersListAdapter(OrdersActivity.this, orderArrayList);
 
-//        ListView listView = findViewById(R.id.orders_listview);
         binding.listview.setAdapter(ordersListAdapter);
         binding.listview.setClickable(true);
-        binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(OrdersActivity.this, BookProfileActivity.class);
-                intent.putExtra("order", orderArrayList.get(position));
-                startActivity(intent);
-            }
+        binding.listview.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(OrdersActivity.this, BookProfileActivity.class);
+            intent.putExtra("order", orderArrayList.get(position));
+            startActivity(intent);
         });
 
     }

@@ -7,22 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.compravendita_libri_ium.Ad;
-import com.example.compravendita_libri_ium.AdBase;
 import com.example.compravendita_libri_ium.Ads;
 import com.example.compravendita_libri_ium.AdsListAdapter;
-import com.example.compravendita_libri_ium.BookCondition;
-import com.example.compravendita_libri_ium.BookSubCondition;
-import com.example.compravendita_libri_ium.Books;
-import com.example.compravendita_libri_ium.MeetingPlace;
-import com.example.compravendita_libri_ium.Order;
-import com.example.compravendita_libri_ium.Orders;
-import com.example.compravendita_libri_ium.OrdersListAdapter;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityOrdersOrAdsBinding;
 
@@ -51,13 +39,10 @@ public class AdsActivity extends AppCompatActivity {
         AdsListAdapter adsListAdapter = new AdsListAdapter(AdsActivity.this, adsArrayList);
         binding.listview.setAdapter(adsListAdapter);
         binding.listview.setClickable(true);
-        binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(AdsActivity.this, AdProfileActivity.class);
-                intent.putExtra("ad", adsArrayList.get(position));
-                startActivity(intent);
-            }
+        binding.listview.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(AdsActivity.this, AdProfileActivity.class);
+            intent.putExtra("ad", adsArrayList.get(position));
+            startActivity(intent);
         });
 
         binding.newOrderOrAd.setOnClickListener(view -> {

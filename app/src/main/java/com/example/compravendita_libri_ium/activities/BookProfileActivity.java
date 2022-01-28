@@ -32,11 +32,9 @@ public class BookProfileActivity extends AppCompatActivity {
 
             Order order = (Order) intent.getParcelableExtra("order");
 
-            RecyclerView recyclerView = findViewById(R.id.recycler_images);
-
             RecyclerViewImageAdapter adapter = new RecyclerViewImageAdapter(this, order.getAdBase().getPhotos());
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            binding.recyclerImages.setAdapter(adapter);
+            binding.recyclerImages.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
             binding.infoLibro.setText(order.getAdBase().getUsedBook().toString());
             binding.infoVenditore.setText(order.getSeller().toString());
