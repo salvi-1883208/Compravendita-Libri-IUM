@@ -20,7 +20,7 @@ public class NewAdActivity extends AppCompatActivity {
         binding = ActivityNewAdBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getActionBar().setTitle("Selezione libro da vendere");
+        getSupportActionBar().setTitle("Inserisci annuncio");
     }
 
     @Override
