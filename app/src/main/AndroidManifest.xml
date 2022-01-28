@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompravenditaLibriIUM">
         <activity
+            android:name=".activities.NewAdActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AdProfileActivity"
             android:exported="false" />
         <activity
@@ -31,12 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.SelectedFromListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

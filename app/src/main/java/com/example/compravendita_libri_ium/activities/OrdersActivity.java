@@ -9,16 +9,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
+
 import com.example.compravendita_libri_ium.OrdersListAdapter;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.Orders;
 import com.example.compravendita_libri_ium.R;
-import com.example.compravendita_libri_ium.databinding.ActivityMainBinding;
+import com.example.compravendita_libri_ium.databinding.ActivityOrdersOrAdsBinding;
+
 import java.util.ArrayList;
 
 public class OrdersActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityOrdersOrAdsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +29,19 @@ public class OrdersActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Ordini Effettuati");
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityOrdersOrAdsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         ArrayList<Order> orderArrayList = new ArrayList<>();
 
         //Riempio una lista con tutti gli ordini da mostrare
-        for (Orders order: Orders.values()) {
+        for (Orders order : Orders.values()) {
             orderArrayList.add(order.getOrder());
         }
 
         OrdersListAdapter ordersListAdapter = new OrdersListAdapter(OrdersActivity.this, orderArrayList);
 
+//        ListView listView = findViewById(R.id.orders_listview);
         binding.listview.setAdapter(ordersListAdapter);
         binding.listview.setClickable(true);
         binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -24,13 +24,13 @@ import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.Orders;
 import com.example.compravendita_libri_ium.OrdersListAdapter;
 import com.example.compravendita_libri_ium.R;
-import com.example.compravendita_libri_ium.databinding.ActivityMainBinding;
+import com.example.compravendita_libri_ium.databinding.ActivityOrdersOrAdsBinding;
 
 import java.util.ArrayList;
 
 public class AdsActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityOrdersOrAdsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class AdsActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Annunci Inseriti");
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityOrdersOrAdsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         ArrayList<Ad> adsArrayList = new ArrayList<>();
@@ -58,6 +58,11 @@ public class AdsActivity extends AppCompatActivity {
                 intent.putExtra("ad", adsArrayList.get(position));
                 startActivity(intent);
             }
+        });
+
+        binding.newOrderOrAd.setOnClickListener(view -> {
+            Intent intent = new Intent(AdsActivity.this, NewAdActivity.class);
+            startActivity(intent);
         });
     }
 
