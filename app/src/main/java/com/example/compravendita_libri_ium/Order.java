@@ -37,6 +37,19 @@ public class Order implements Parcelable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof Order))
+            return false;
+
+        Order order = (Order) o;
+
+        return adBase.equals(order.getAdBase());
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }

@@ -97,7 +97,9 @@ public class UsedBook implements Parcelable {
 
         return usedBook.getTitle().equals(getTitle()) &&
                 usedBook.getAuthor().equals(getAuthor()) &&
-                usedBook.getEdition() == (getEdition());
+                usedBook.getEdition() == (getEdition()) &&
+                usedBook.getCondition().equals(condition) &&
+                usedBook.getSubCondition().equals(subCondition);
     }
 
     public static final Parcelable.Creator<UsedBook> CREATOR = new Parcelable.Creator<UsedBook>() {
