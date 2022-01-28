@@ -21,8 +21,6 @@ public class HomeActivity extends AppCompatActivity {
         vendi_libro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent OpenVendita = new Intent(HomeActivity.this, sell_activity.class);
-                startActivity(OpenVendita);
 
             }
         });
@@ -53,12 +51,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout profilo_utente = findViewById(R.id.profilo_utente);
-        profilo_utente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 }
