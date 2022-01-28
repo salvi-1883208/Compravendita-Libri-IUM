@@ -52,8 +52,8 @@ public class OrdersListAdapter extends ArrayAdapter<Order> {
 
     private String editionPriceInfo(Order order) {
         String edition = Integer.toString(order.getAdBase().getUsedBook().getEdition());
-        String price = Double.toString(order.getAdBase().getPrice());
-        return "Edizione: " + edition + "\nPrezzo: " + price + "€";
+        String price = order.getAdBase().getPriceString();
+        return "Edizione: " + edition + "\nPrezzo: " + price;
     }
 
     private String minutesToString(int t) {

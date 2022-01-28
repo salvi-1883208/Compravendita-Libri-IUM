@@ -41,7 +41,7 @@ public class BookProfileActivity extends AppCompatActivity {
             binding.ratingBar.setRating(order.getSeller().getReputation());
             binding.moreInfoLibro.setText(orderConditions(order));
             binding.meetingPlace.setText(order.getAdBase().getMeetingPlace().toString());
-            binding.price.setText(Double.toString(order.getAdBase().getPrice()) + "€");
+            binding.price.setText(order.getAdBase().getPriceString());
             binding.timeLeft.setText(timeLeft(order));
 
             getSupportActionBar().setTitle(order.getAdBase().getUsedBook().getTitle());
