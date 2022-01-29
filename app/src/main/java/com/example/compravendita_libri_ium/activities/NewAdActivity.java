@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BooksToSell;
+import com.example.compravendita_libri_ium.NewAdListAdapter;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityNewAdBinding;
 
@@ -24,6 +25,7 @@ public class NewAdActivity extends AppCompatActivity {
 
     private ArrayList<Book> booksToSell = BooksToSell.getInstance().getBooks();
     private String[] bookNames = new String[booksToSell.size()];
+    private String[] bookEditions = new String[booksToSell.size()];
     private ActivityNewAdBinding binding;
 
     @Override
@@ -38,9 +40,12 @@ public class NewAdActivity extends AppCompatActivity {
             bookNames[i] = booksToSell.get(i).getTitle();
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.new_ad_item_list, R.id.new_ad_book_title, bookNames);
-        binding.searchListview.setAdapter(adapter);
+        for (int i = 0; i < booksToSell.size(); i++) {
+            bookEditions[i] = Integer.toString(booksToSell.get(i).getEdition());
+        }
 
+        NewAdListAdapter adapter = new NewAdListAdapter(this, booksToSell);
+        binding.searchListview.setAdapter(adapter);
 
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -54,22 +59,21 @@ public class NewAdActivity extends AppCompatActivity {
                 return false;
             }
         });
-        //13
-        binding.searchListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                TextView textView = (TextView) view.findViewById(R.id.new_ad_book_infos);
-                Button button = (Button) view.findViewById(R.id.new_ad_infos_button);
+        binding.searchListview.setOnItemClickListener((adapterView, view, position, l) -> {
+            TextView textView = (TextView) view.findViewById(R.id.new_ad_book_infos);
+            Button button = (Button) view.findViewById(R.id.new_ad_infos_button);
 
-                if (textView.getVisibility() == View.GONE && button.getVisibility() == View.GONE) {
-                    textView.setText(booksToSell.get(position).getDescription());
-                    textView.setVisibility(View.VISIBLE);
-                    button.setVisibility(View.VISIBLE);
+            if (button.getVisibility() == View.GONE) {
+                textView.setText(booksToSell.get(position).getDescription());
+//                textView.setTextSize(18);
+                button.setVisibility(View.VISIBLE);
 
-                } else {
-                    textView.setVisibility(View.GONE);
-                    button.setVisibility(View.GONE);
-                }
+
+            } else {
+                button.setVisibility(View.GONE);
+                textView.setText("Edizione: " + Integer.toString(booksToSell.get(position).getEdition()));
+//                textView.setTextSize(15);
+
             }
         });
 

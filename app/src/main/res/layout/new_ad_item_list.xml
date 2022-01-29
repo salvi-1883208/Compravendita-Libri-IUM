@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:text="Libro"
+            android:textStyle="bold"
             android:textSize="20dp" />
 
         <TextView
@@ -31,8 +32,7 @@
             android:layout_marginBottom="12dp"
             android:lineSpacingExtra="3dp"
             android:text="Info sul libro"
-            android:textSize="18dp"
-            android:visibility="gone" />
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/new_ad_infos_button"
