@@ -31,8 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         binding.compraLibri.setOnClickListener(view -> {
-            Intent intent = new Intent(HomeActivity.this, SelectCourseActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(HomeActivity.this, SelectCourseActivity.class);
+//            startActivity(intent);
         });
 
         binding.vendiLibri.setOnClickListener(view -> {
