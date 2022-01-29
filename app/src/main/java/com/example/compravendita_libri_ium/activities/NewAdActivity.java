@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BooksToSell;
@@ -17,14 +19,11 @@ import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityNewAdBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewAdActivity extends AppCompatActivity {
 
-    ListView listView;
-    ArrayList<Book> booksToSell = BooksToSell.getInstance().getBooks();
-    String[] bookNames = new String[booksToSell.size()];
-    ArrayAdapter<String> arrayAdapter;
+    private ArrayList<Book> booksToSell = BooksToSell.getInstance().getBooks();
+    private String[] bookNames = new String[booksToSell.size()];
     private ActivityNewAdBinding binding;
 
     @Override
@@ -39,10 +38,9 @@ public class NewAdActivity extends AppCompatActivity {
             bookNames[i] = booksToSell.get(i).getTitle();
         }
 
-        listView = findViewById(R.id.search_listview);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.new_ad_item_list, R.id.new_ad_book_title, bookNames);
+        binding.searchListview.setAdapter(adapter);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bookNames);
-        listView.setAdapter(arrayAdapter);
 
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -52,10 +50,29 @@ public class NewAdActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {        //quando l'user comincia a scrivere
-                arrayAdapter.getFilter().filter(s);
+                adapter.getFilter().filter(s);
                 return false;
             }
         });
+        //13
+        binding.searchListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                TextView textView = (TextView) view.findViewById(R.id.new_ad_book_infos);
+                Button button = (Button) view.findViewById(R.id.new_ad_infos_button);
+
+                if (textView.getVisibility() == View.GONE && button.getVisibility() == View.GONE) {
+                    textView.setText(booksToSell.get(position).getDescription());
+                    textView.setVisibility(View.VISIBLE);
+                    button.setVisibility(View.VISIBLE);
+
+                } else {
+                    textView.setVisibility(View.GONE);
+                    button.setVisibility(View.GONE);
+                }
+            }
+        });
+
     }
 
     @Override
