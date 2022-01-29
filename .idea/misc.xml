@@ -15,18 +15,18 @@
         <entry key="app/src/main/res/layout/activity_info_order.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2610734757686295" />
         <entry key="app/src/main/res/layout/activity_new_ad.xml" value="0.2318840579710145" />
-        <entry key="app/src/main/res/layout/activity_new_ad_photos.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_orders.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_orders_or_ads.xml" value="0.2318840579710145" />
-        <entry key="app/src/main/res/layout/activity_select_condition.xml" value="0.2609375" />
-        <entry key="app/src/main/res/layout/activity_select_sub_condition.xml" value="0.2609375" />
+        <entry key="app/src/main/res/layout/activity_select_condition.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_select_course.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_select_course_listitem.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_selected_from_list.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_sell.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/ads_listitem.xml" value="0.1" />
         <entry key="app/src/main/res/layout/new_ad_item_list.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/new_ad_list_group.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/new_ad_list_item.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/orders_listitem.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/orders_listitem.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recycler_view_image.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/selected_from_list.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/toolbar_back.xml" value="0.2609375" />

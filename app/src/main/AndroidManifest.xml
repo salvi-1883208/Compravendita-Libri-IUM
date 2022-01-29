@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompravenditaLibriIUM">
         <activity
+            android:name=".activities.SelectCourseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SelectSubConditionActivity"
             android:exported="false" />
         <activity
