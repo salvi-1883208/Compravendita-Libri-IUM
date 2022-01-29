@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BooksToSell;
+import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.NewAdListAdapter;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityNewAdBinding;
@@ -69,10 +70,9 @@ public class NewAdActivity extends AppCompatActivity {
                 button.setVisibility(View.VISIBLE);
                 button.setOnClickListener(view1 -> {
                     Intent intent = new Intent(NewAdActivity.this, SelectConditionActivity.class);
-                    intent.putExtra("selected_book", booksToSell.get(position));
+                    intent.putExtra("builder", new NewAdBuilder().setBook(booksToSell.get(position)));
                     startActivity(intent);
                 });
-
 
             } else {
                 button.setVisibility(View.GONE);
