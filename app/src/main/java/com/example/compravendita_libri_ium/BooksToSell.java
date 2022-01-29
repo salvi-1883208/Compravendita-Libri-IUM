@@ -25,7 +25,7 @@ public class BooksToSell {
         return instance;
     }
 
-    public List<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
 

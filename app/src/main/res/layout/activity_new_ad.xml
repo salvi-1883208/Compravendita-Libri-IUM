@@ -7,19 +7,21 @@
     tools:context=".activities.NewAdActivity">
 
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginBottom="542dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        app:iconifiedByDefault="false"
+        app:queryHint="Inserisci il titolo del libro da vendere" />
 
     <ListView
         android:id="@+id/search_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
