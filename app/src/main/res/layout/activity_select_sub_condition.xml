@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.SelectSubConditionActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkBox1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="Seleziona dettagli sulla condizione"
+        android:textSize="20dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkBox2"
+        android:layout_alignStart="@id/textView"
+        android:layout_marginBottom="20dp"
+        android:text="condizione1"
+        android:textSize="18dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/textView"
+        android:layout_centerInParent="true"
+        android:text="condizione2"
+        android:layout_marginBottom="20dp"
+        android:textSize="18dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkBox2"
+        android:layout_alignStart="@id/textView"
+        android:layout_marginBottom="40dp"
+        android:text="condizione3"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/continua_button"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/checkBox3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:letterSpacing="0"
+        android:text="Continua"
+        android:textAllCaps="false"
+        android:textSize="24dp"
+        android:visibility="gone" />
+</RelativeLayout>

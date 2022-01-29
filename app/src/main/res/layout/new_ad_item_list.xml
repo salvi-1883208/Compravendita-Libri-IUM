@@ -19,8 +19,8 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:text="Libro"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/new_ad_book_infos"
@@ -41,10 +41,11 @@
             android:layout_alignBottom="@id/new_ad_book_infos"
             android:layout_alignParentRight="true"
             android:layout_marginRight="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
             android:text="Vendi questo libro"
             android:textAllCaps="false"
             android:textSize="15dp"
-            android:fontFamily="sans-serif-medium"
             android:visibility="gone" />
 
     </RelativeLayout>

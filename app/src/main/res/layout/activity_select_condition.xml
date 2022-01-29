@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/condizioni_radio_group"
         android:layout_alignStart="@id/condizioni_radio_group"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:text="Seleziona la condizione del libro"
         android:textSize="20dp" />
 
@@ -50,12 +50,12 @@
 
     <Button
         android:id="@+id/continua_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
         android:layout_below="@id/condizioni_radio_group"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
+        android:letterSpacing="0"
         android:text="Continua"
         android:textAllCaps="false"
         android:textSize="24dp"

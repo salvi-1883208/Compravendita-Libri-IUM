@@ -3,16 +3,18 @@ package com.example.compravendita_libri_ium;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class UsedBook implements Parcelable {
 
     private Book book;
     private BookCondition condition;
-    private BookSubCondition subCondition = null;
+    private ArrayList<BookSubCondition> subConditions = null;
 
-    public UsedBook(Book book, BookCondition bookCondition, BookSubCondition bookSubCondition) {
+    public UsedBook(Book book, BookCondition bookCondition, ArrayList<BookSubCondition> bookSubConditions) {
         this.book = book;
         this.condition = bookCondition;
-        this.subCondition = bookSubCondition;
+        this.subConditions = bookSubConditions;
     }
 
     public UsedBook(Book book, BookCondition bookCondition) {
@@ -48,14 +50,15 @@ public class UsedBook implements Parcelable {
         return condition;
     }
 
-    public BookSubCondition getSubCondition() {
-        return subCondition;
+    public ArrayList<BookSubCondition> getSubConditions() {
+        return subConditions;
     }
 
     @Override
     public String toString() {
         return book.toString();
     }
+
 
     @Override
     public int describeContents() {
@@ -66,43 +69,26 @@ public class UsedBook implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeParcelable(this.book, flags);
         dest.writeInt(this.condition == null ? -1 : this.condition.ordinal());
-        dest.writeInt(this.subCondition == null ? -1 : this.subCondition.ordinal());
+        dest.writeList(this.subConditions);
     }
 
     public void readFromParcel(Parcel source) {
         this.book = source.readParcelable(Book.class.getClassLoader());
         int tmpCondition = source.readInt();
         this.condition = tmpCondition == -1 ? null : BookCondition.values()[tmpCondition];
-        int tmpSubCondition = source.readInt();
-        this.subCondition = tmpSubCondition == -1 ? null : BookSubCondition.values()[tmpSubCondition];
+        this.subConditions = new ArrayList<BookSubCondition>();
+        source.readList(this.subConditions, BookSubCondition.class.getClassLoader());
     }
 
     protected UsedBook(Parcel in) {
         this.book = in.readParcelable(Book.class.getClassLoader());
         int tmpCondition = in.readInt();
         this.condition = tmpCondition == -1 ? null : BookCondition.values()[tmpCondition];
-        int tmpSubCondition = in.readInt();
-        this.subCondition = tmpSubCondition == -1 ? null : BookSubCondition.values()[tmpSubCondition];
+        this.subConditions = new ArrayList<BookSubCondition>();
+        in.readList(this.subConditions, BookSubCondition.class.getClassLoader());
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-
-        if (!(o instanceof UsedBook))
-            return false;
-
-        UsedBook usedBook = (UsedBook) o;
-
-        return usedBook.getTitle().equals(getTitle()) &&
-                usedBook.getAuthor().equals(getAuthor()) &&
-                usedBook.getEdition() == (getEdition()) &&
-                usedBook.getCondition().equals(condition) &&
-                usedBook.getSubCondition().equals(subCondition);
-    }
-
-    public static final Parcelable.Creator<UsedBook> CREATOR = new Parcelable.Creator<UsedBook>() {
+    public static final Creator<UsedBook> CREATOR = new Creator<UsedBook>() {
         @Override
         public UsedBook createFromParcel(Parcel source) {
             return new UsedBook(source);

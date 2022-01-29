@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +14,7 @@ import android.view.View;
 
 import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
-import com.example.compravendita_libri_ium.ConfirmDeletionDialogFragment;
+import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerViewImageAdapter;
 import com.example.compravendita_libri_ium.databinding.ActivityAdProfileBinding;
@@ -76,7 +75,10 @@ public class AdProfileActivity extends AppCompatActivity {
 
     private String adConditions(Ad ad) {
         String s1 = ad.getAdBase().getUsedBook().getCondition().getDescription();
-        String s2 = ad.getAdBase().getUsedBook().getSubCondition().getDescription();
+        String s2 = "";
+        for (BookSubCondition bookSubCondition : ad.getAdBase().getUsedBook().getSubConditions()) {
+            s2 += bookSubCondition.getDescription();
+        }
         if (s2 == null)
             return s1;
         return s1 + "\n" + s2;

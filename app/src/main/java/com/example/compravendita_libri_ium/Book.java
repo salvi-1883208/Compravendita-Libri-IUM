@@ -3,6 +3,8 @@ package com.example.compravendita_libri_ium;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class Book implements Parcelable {
 
     private int edition;
@@ -22,8 +24,8 @@ public class Book implements Parcelable {
         this.subject = subject;
     }
 
-    public UsedBook toUsedBook(BookCondition condition, BookSubCondition subCondition) {
-        return new UsedBook(this, condition, subCondition);
+    public UsedBook toUsedBook(BookCondition condition, ArrayList<BookSubCondition> subConditions) {
+        return new UsedBook(this, condition, subConditions);
     }
 
     public UsedBook toUsedBook(BookCondition condition) {

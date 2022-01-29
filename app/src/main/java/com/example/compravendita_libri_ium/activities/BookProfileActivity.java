@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerViewImageAdapter;
@@ -50,7 +50,10 @@ public class BookProfileActivity extends AppCompatActivity {
 
     private String orderConditions(Order order) {
         String s1 = order.getAdBase().getUsedBook().getCondition().getDescription();
-        String s2 = order.getAdBase().getUsedBook().getSubCondition().getDescription();
+        String s2 = "";
+        for (BookSubCondition bookSubCondition : order.getAdBase().getUsedBook().getSubConditions()) {
+            s2 += bookSubCondition.getDescription();
+        }
         if (s2 == null)
             return s1;
         return s1 + "\n" + s2;

@@ -23,7 +23,6 @@ public class NewAdListAdapter extends ArrayAdapter<Book> {
 
     //constuctor
     public NewAdListAdapter(Context context, ArrayList<Book> bookArrayList) {
-
         super(context, R.layout.new_ad_item_list, bookArrayList);
     }
 

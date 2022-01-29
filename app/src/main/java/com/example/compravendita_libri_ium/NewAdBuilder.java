@@ -5,10 +5,12 @@ import android.os.Parcelable;
 
 import com.example.compravendita_libri_ium.activities.NewAdActivity;
 
+import java.util.ArrayList;
+
 public class NewAdBuilder implements Parcelable {
     private Book book;
     private BookCondition bookCondition;
-    private BookSubCondition bookSubCondition;
+    private ArrayList<BookSubCondition> bookSubCondition = null;
     private double price;
     private MeetingPlace meetingPlace;
     private int[] photos;
@@ -30,7 +32,7 @@ public class NewAdBuilder implements Parcelable {
         return this;
     }
 
-    public NewAdBuilder setSubCondition(BookSubCondition bookSubCondition) {
+    public NewAdBuilder setSubCondition(ArrayList<BookSubCondition> bookSubCondition) {
         this.bookSubCondition = bookSubCondition;
         return this;
     }
@@ -50,6 +52,15 @@ public class NewAdBuilder implements Parcelable {
         return this;
     }
 
+    public BookCondition getBookCondition() {
+        return bookCondition;
+    }
+
+    public boolean hasSubCondition() {
+        return bookSubCondition.isEmpty();
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -59,7 +70,7 @@ public class NewAdBuilder implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeParcelable(this.book, flags);
         dest.writeInt(this.bookCondition == null ? -1 : this.bookCondition.ordinal());
-        dest.writeInt(this.bookSubCondition == null ? -1 : this.bookSubCondition.ordinal());
+        dest.writeList(this.bookSubCondition);
         dest.writeDouble(this.price);
         dest.writeInt(this.meetingPlace == null ? -1 : this.meetingPlace.ordinal());
         dest.writeIntArray(this.photos);
@@ -69,8 +80,8 @@ public class NewAdBuilder implements Parcelable {
         this.book = source.readParcelable(Book.class.getClassLoader());
         int tmpBookCondition = source.readInt();
         this.bookCondition = tmpBookCondition == -1 ? null : BookCondition.values()[tmpBookCondition];
-        int tmpBookSubCondition = source.readInt();
-        this.bookSubCondition = tmpBookSubCondition == -1 ? null : BookSubCondition.values()[tmpBookSubCondition];
+        this.bookSubCondition = new ArrayList<BookSubCondition>();
+        source.readList(this.bookSubCondition, BookSubCondition.class.getClassLoader());
         this.price = source.readDouble();
         int tmpMeetingPlace = source.readInt();
         this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
@@ -81,15 +92,15 @@ public class NewAdBuilder implements Parcelable {
         this.book = in.readParcelable(Book.class.getClassLoader());
         int tmpBookCondition = in.readInt();
         this.bookCondition = tmpBookCondition == -1 ? null : BookCondition.values()[tmpBookCondition];
-        int tmpBookSubCondition = in.readInt();
-        this.bookSubCondition = tmpBookSubCondition == -1 ? null : BookSubCondition.values()[tmpBookSubCondition];
+        this.bookSubCondition = new ArrayList<BookSubCondition>();
+        in.readList(this.bookSubCondition, BookSubCondition.class.getClassLoader());
         this.price = in.readDouble();
         int tmpMeetingPlace = in.readInt();
         this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
         this.photos = in.createIntArray();
     }
 
-    public static final Parcelable.Creator<NewAdBuilder> CREATOR = new Parcelable.Creator<NewAdBuilder>() {
+    public static final Creator<NewAdBuilder> CREATOR = new Creator<NewAdBuilder>() {
         @Override
         public NewAdBuilder createFromParcel(Parcel source) {
             return new NewAdBuilder(source);

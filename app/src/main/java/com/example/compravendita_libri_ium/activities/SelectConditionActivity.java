@@ -33,8 +33,14 @@ public class SelectConditionActivity extends AppCompatActivity {
         NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
 
         binding.condizioniRadioGroup.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (binding.continuaButton.getVisibility() == View.GONE)
+                binding.continuaButton.setVisibility(View.VISIBLE);
+        });
+
+
+        binding.continuaButton.setOnClickListener(view -> {
             Intent intent;
-            switch (i) {
+            switch (binding.condizioniRadioGroup.getCheckedRadioButtonId()) {
                 case R.id.come_nuovo_button: {   //libro come nuovo
                     intent = new Intent(SelectConditionActivity.this, NewAdPhotosActivity.class);
                     intent.putExtra("builder", builder.setCondition(BookCondition.COME_NUOVO));
@@ -51,13 +57,9 @@ public class SelectConditionActivity extends AppCompatActivity {
                     break;
                 }
                 default:
-                    throw new IllegalStateException("Unexpected value: " + i);
+                    throw new IllegalStateException("Unexpected value: " + binding.condizioniRadioGroup.getCheckedRadioButtonId());
             }
-
-            if (binding.continuaButton.getVisibility() == View.GONE)
-                binding.continuaButton.setVisibility(View.VISIBLE);
-
-            binding.continuaButton.setOnClickListener(view -> startActivity(intent));
+            startActivity(intent);
         });
     }
 
