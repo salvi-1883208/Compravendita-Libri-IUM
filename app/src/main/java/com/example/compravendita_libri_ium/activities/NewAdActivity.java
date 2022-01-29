@@ -3,6 +3,7 @@ package com.example.compravendita_libri_ium.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,7 +35,7 @@ public class NewAdActivity extends AppCompatActivity {
         binding = ActivityNewAdBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().setTitle("Inserisci annuncio");
+        getSupportActionBar().setTitle("Passo 1: Selezione libro");
 
         for (int i = 0; i < booksToSell.size(); i++) {
             bookNames[i] = booksToSell.get(i).getTitle();
@@ -65,15 +66,17 @@ public class NewAdActivity extends AppCompatActivity {
 
             if (button.getVisibility() == View.GONE) {
                 textView.setText(booksToSell.get(position).getDescription());
-//                textView.setTextSize(18);
                 button.setVisibility(View.VISIBLE);
+                button.setOnClickListener(view1 -> {
+                    Intent intent = new Intent(NewAdActivity.this, SelectConditionActivity.class);
+                    intent.putExtra("selected_book", booksToSell.get(position));
+                    startActivity(intent);
+                });
 
 
             } else {
                 button.setVisibility(View.GONE);
                 textView.setText("Edizione: " + Integer.toString(booksToSell.get(position).getEdition()));
-//                textView.setTextSize(15);
-
             }
         });
 
