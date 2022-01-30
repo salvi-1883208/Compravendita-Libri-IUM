@@ -1,6 +1,7 @@
 package com.example.compravendita_libri_ium;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +10,14 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerViewImageAdapter extends RecyclerView.Adapter<RecyclerViewImageAdapter.ViewHolder> {
 
-    private int[] images;
+    private ArrayList<Uri> images;
     private Context context;
 
-    public RecyclerViewImageAdapter(Context context, int[] images){
+    public RecyclerViewImageAdapter(Context context, ArrayList<Uri> images) {
         this.images = images;
         this.context = context;
     }
@@ -23,18 +26,18 @@ public class RecyclerViewImageAdapter extends RecyclerView.Adapter<RecyclerViewI
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycler_view_image, parent,false);
+        View view = inflater.inflate(R.layout.recycler_view_image, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setImageResource(images[position]);
+        holder.imageView.setImageURI(images.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return images.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -20,7 +20,7 @@ public class NewAdBuilder implements Parcelable {
     }
 
     public Ad build() {                                                                //devo aggiustare qui
-        return new Ad(new AdBase(book.toUsedBook(bookCondition, bookSubCondition), price, new int[]{}, meetingPlace), false);
+        return new Ad(new AdBase(book.toUsedBook(bookCondition, bookSubCondition), price, photos, meetingPlace), false);
     }
 
     public NewAdBuilder setBook(Book book) {

@@ -51,7 +51,7 @@ public class AdProfileActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdProfileActivity.this);
                     builder.setPositiveButton("Si", (dialog, id) -> {
                         // User clicked OK button
-                        ActiveAds.getInstance().removeAd(ad);
+                        System.out.println(ActiveAds.getInstance().removeAd(ad));
                         finish();
                     });
                     builder.setNegativeButton("No", (dialog, id) -> {

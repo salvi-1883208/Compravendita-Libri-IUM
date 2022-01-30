@@ -38,7 +38,7 @@ public class OrdersListAdapter extends ArrayAdapter<Order> {
         TextView bookEditionPrice = convertView.findViewById(R.id.book_infos);
         TextView orders_expiring_time = convertView.findViewById(R.id.order_expire_countdown);
 
-        imageView.setImageResource(order.getAdBase().getPhotos()[0]);
+        imageView.setImageURI(order.getAdBase().getPhotos().get(0));
         bookTitle.setText(order.getAdBase().getUsedBook().getTitle());
         bookEditionPrice.setText(editionPriceInfo(order));
         if (order.isCompleted()) {
