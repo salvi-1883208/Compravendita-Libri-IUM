@@ -33,7 +33,7 @@ public class AdsListAdapter extends ArrayAdapter<Ad> {
         TextView bookEditionPrice = convertView.findViewById(R.id.ads_book_infos);
         TextView adApprovation = convertView.findViewById(R.id.ads_approvation);
 
-        imageView.setImageResource(ad.getAdBase().getPhotos()[0]);
+        imageView.setImageURI(ad.getAdBase().getPhotos().get(0));
         bookTitle.setText(ad.getAdBase().getUsedBook().getTitle());
         bookEditionPrice.setText(editionPriceInfo(ad));
 

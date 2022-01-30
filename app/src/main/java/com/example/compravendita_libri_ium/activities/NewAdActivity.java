@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.compravendita_libri_ium.AdBase;
 import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BooksToSell;
 import com.example.compravendita_libri_ium.NewAdBuilder;

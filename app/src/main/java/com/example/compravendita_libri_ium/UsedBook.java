@@ -59,6 +59,25 @@ public class UsedBook implements Parcelable {
         return book.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof UsedBook))
+            return false;
+
+        UsedBook usedBook = (UsedBook) o;
+
+        return usedBook.getAuthor().equals(getAuthor()) &&
+                usedBook.getEdition() == getEdition() &&
+                usedBook.getTitle().equals(getTitle()) &&
+                usedBook.getIsbn().equals(getIsbn()) &&
+                usedBook.getPublisher().equals(getPublisher()) &&
+                usedBook.getCondition().equals(condition) &&
+                usedBook.getSubConditions().equals(subConditions);
+    }
+
 
     @Override
     public int describeContents() {
