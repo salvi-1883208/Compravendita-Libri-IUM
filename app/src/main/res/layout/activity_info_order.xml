@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:padding="10dp"
     android:scrollbars="none">
 
     <RelativeLayout
@@ -73,9 +72,9 @@
             android:id="@+id/line1"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:layout_below="@id/rating_bar"
+            android:layout_below="@id/info_libro"
             android:layout_alignStart="@id/view1"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="#969FAA" />
 
         <TextView

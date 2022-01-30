@@ -1,5 +1,6 @@
 package com.example.compravendita_libri_ium;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -13,13 +14,13 @@ public class NewAdBuilder implements Parcelable {
     private ArrayList<BookSubCondition> bookSubCondition = null;
     private double price;
     private MeetingPlace meetingPlace;
-    private int[] photos;
+    private ArrayList<Uri> photos;
 
     public NewAdBuilder() {
     }
 
-    public Ad build() {
-        return new Ad(new AdBase(book.toUsedBook(bookCondition, bookSubCondition), price, photos, meetingPlace), false);
+    public Ad build() {                                                                //devo aggiustare qui
+        return new Ad(new AdBase(book.toUsedBook(bookCondition, bookSubCondition), price, new int[]{}, meetingPlace), false);
     }
 
     public NewAdBuilder setBook(Book book) {
@@ -47,7 +48,7 @@ public class NewAdBuilder implements Parcelable {
         return this;
     }
 
-    public NewAdBuilder setPhotos(int[] photos) {
+    public NewAdBuilder setPhotos(ArrayList<Uri> photos) {
         this.photos = photos;
         return this;
     }
@@ -57,7 +58,7 @@ public class NewAdBuilder implements Parcelable {
     }
 
     public boolean hasSubCondition() {
-        return bookSubCondition.isEmpty();
+        return !bookSubCondition.isEmpty();
     }
 
 
@@ -73,7 +74,7 @@ public class NewAdBuilder implements Parcelable {
         dest.writeList(this.bookSubCondition);
         dest.writeDouble(this.price);
         dest.writeInt(this.meetingPlace == null ? -1 : this.meetingPlace.ordinal());
-        dest.writeIntArray(this.photos);
+        dest.writeTypedList(this.photos);
     }
 
     public void readFromParcel(Parcel source) {
@@ -85,7 +86,7 @@ public class NewAdBuilder implements Parcelable {
         this.price = source.readDouble();
         int tmpMeetingPlace = source.readInt();
         this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
-        this.photos = source.createIntArray();
+        this.photos = source.createTypedArrayList(Uri.CREATOR);
     }
 
     protected NewAdBuilder(Parcel in) {
@@ -97,7 +98,7 @@ public class NewAdBuilder implements Parcelable {
         this.price = in.readDouble();
         int tmpMeetingPlace = in.readInt();
         this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
-        this.photos = in.createIntArray();
+        this.photos = in.createTypedArrayList(Uri.CREATOR);
     }
 
     public static final Creator<NewAdBuilder> CREATOR = new Creator<NewAdBuilder>() {
