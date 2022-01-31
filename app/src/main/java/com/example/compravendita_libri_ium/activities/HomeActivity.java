@@ -1,19 +1,16 @@
 package com.example.compravendita_libri_ium.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
 
-import com.example.compravendita_libri_ium.BooksToSell;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityHomeBinding;
-import com.example.compravendita_libri_ium.databinding.ActivityInfoOrderBinding;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,10 +23,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Sezione compravendita libri");
 
-        binding.vendiLibri.setOnClickListener(view -> {
-
-        });
-
         binding.compraLibri.setOnClickListener(view -> {
 //            Intent intent = new Intent(HomeActivity.this, SelectCourseActivity.class);
 //            startActivity(intent);
@@ -37,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.vendiLibri.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, NewAdActivity.class);
+            intent.putExtra("builder", new NewAdBuilder(true));
             startActivity(intent);
         });
 
@@ -46,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         binding.annunciInseriti.setOnClickListener(view -> {
-            Intent OpenAnnunci = new Intent(HomeActivity.this, AdsActivity.class);
+            Intent OpenAnnunci = new Intent(HomeActivity.this, AdsActivity.class).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(OpenAnnunci);
         });
     }

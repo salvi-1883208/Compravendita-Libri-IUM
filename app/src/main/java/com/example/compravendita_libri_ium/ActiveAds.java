@@ -19,15 +19,15 @@ public class ActiveAds {
         return instance;
     }
 
-    public ArrayList<Ad> getAds() {
+    public static ArrayList<Ad> getAds() {
         return ads;
     }
 
-    public void addAd(Ad ad) {
+    public static void addAd(Ad ad) {
         ads.add(ad);
     }
 
-    public boolean removeAd(Ad ad) {
+    public static boolean removeAd(Ad ad) {
         return ads.remove(ad);
     }
 }

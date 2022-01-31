@@ -4,7 +4,6 @@ package com.example.compravendita_libri_ium;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +71,7 @@ public class RecyclerViewAddPhotoAdapter extends RecyclerView.Adapter<RecyclerVi
         holder.addPhotoButton.setOnClickListener(view -> {
             Intent intent = new Intent();
             intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
             ((Activity) context).startActivityForResult(Intent.createChooser(intent, "Seleziona una foto"), SELECT_PICTURE);
         });
     }

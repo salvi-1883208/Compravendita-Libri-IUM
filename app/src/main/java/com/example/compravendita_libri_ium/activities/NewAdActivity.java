@@ -1,20 +1,17 @@
 package com.example.compravendita_libri_ium.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.compravendita_libri_ium.AdBase;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+
 import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BooksToSell;
 import com.example.compravendita_libri_ium.NewAdBuilder;
@@ -38,6 +35,8 @@ public class NewAdActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getSupportActionBar().setTitle("Passo 1: Selezione libro");
+
+        NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
         for (int i = 0; i < booksToSell.size(); i++) {
             bookNames[i] = booksToSell.get(i).getTitle();
@@ -72,7 +71,7 @@ public class NewAdActivity extends AppCompatActivity {
                 button.setVisibility(View.VISIBLE);
                 button.setOnClickListener(view1 -> {
                     Intent intent = new Intent(NewAdActivity.this, SelectConditionActivity.class);
-                    intent.putExtra("builder", new NewAdBuilder().setBook(booksToSell.get(position)));
+                    intent.putExtra("builder", builder.setBook(booksToSell.get(position)));
                     startActivity(intent);
                 });
 

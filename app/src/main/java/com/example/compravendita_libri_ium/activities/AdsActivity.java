@@ -1,17 +1,17 @@
 package com.example.compravendita_libri_ium.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
-import com.example.compravendita_libri_ium.Ads;
 import com.example.compravendita_libri_ium.AdsListAdapter;
+import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityOrdersOrAdsBinding;
 
@@ -45,6 +45,7 @@ public class AdsActivity extends AppCompatActivity {
 
         binding.newOrderOrAd.setOnClickListener(view -> {
             Intent intent = new Intent(AdsActivity.this, NewAdActivity.class);
+            intent.putExtra("builder", new NewAdBuilder(false));
             startActivity(intent);
         });
     }

@@ -45,6 +45,8 @@ public class AdsListAdapter extends ArrayAdapter<Ad> {
         return convertView;
     }
 
+
+
     private String editionPriceInfo(Ad ad) {
         String edition = Integer.toString(ad.getAdBase().getUsedBook().getEdition());
         String price = ad.getAdBase().getPriceString();

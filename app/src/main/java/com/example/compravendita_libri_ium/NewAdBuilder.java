@@ -4,11 +4,10 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.compravendita_libri_ium.activities.NewAdActivity;
-
 import java.util.ArrayList;
 
 public class NewAdBuilder implements Parcelable {
+    private boolean start;  //true home, false ads
     private Book book;
     private BookCondition bookCondition;
     private ArrayList<BookSubCondition> bookSubCondition = null;
@@ -16,7 +15,12 @@ public class NewAdBuilder implements Parcelable {
     private MeetingPlace meetingPlace;
     private ArrayList<Uri> photos;
 
-    public NewAdBuilder() {
+    public NewAdBuilder(boolean start) {
+        this.start = start;
+    }
+
+    public boolean getStart() {
+        return start;
     }
 
     public Ad build() {                                                                //devo aggiustare qui
@@ -61,6 +65,21 @@ public class NewAdBuilder implements Parcelable {
         return !bookSubCondition.isEmpty();
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public ArrayList<BookSubCondition> getBookSubCondition() {
+        return bookSubCondition;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public MeetingPlace getMeetingPlace() {
+        return meetingPlace;
+    }
 
     @Override
     public int describeContents() {
@@ -69,6 +88,7 @@ public class NewAdBuilder implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByte(this.start ? (byte) 1 : (byte) 0);
         dest.writeParcelable(this.book, flags);
         dest.writeInt(this.bookCondition == null ? -1 : this.bookCondition.ordinal());
         dest.writeList(this.bookSubCondition);
@@ -78,6 +98,7 @@ public class NewAdBuilder implements Parcelable {
     }
 
     public void readFromParcel(Parcel source) {
+        this.start = source.readByte() != 0;
         this.book = source.readParcelable(Book.class.getClassLoader());
         int tmpBookCondition = source.readInt();
         this.bookCondition = tmpBookCondition == -1 ? null : BookCondition.values()[tmpBookCondition];
@@ -90,6 +111,7 @@ public class NewAdBuilder implements Parcelable {
     }
 
     protected NewAdBuilder(Parcel in) {
+        this.start = in.readByte() != 0;
         this.book = in.readParcelable(Book.class.getClassLoader());
         int tmpBookCondition = in.readInt();
         this.bookCondition = tmpBookCondition == -1 ? null : BookCondition.values()[tmpBookCondition];

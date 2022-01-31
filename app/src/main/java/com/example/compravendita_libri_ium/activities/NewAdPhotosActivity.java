@@ -2,11 +2,8 @@ package com.example.compravendita_libri_ium.activities;
 
 import static com.example.compravendita_libri_ium.RecyclerViewAddPhotoAdapter.SELECT_PICTURE;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,14 +11,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerViewAddPhotoAdapter;
-
 import com.example.compravendita_libri_ium.databinding.ActivityNewAdPhotosBinding;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class NewAdPhotosActivity extends AppCompatActivity {
@@ -65,7 +62,10 @@ public class NewAdPhotosActivity extends AppCompatActivity {
                 Uri selectedPhotoUri = data.getData();
                 if (null != selectedPhotoUri)
                     ((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).addPhoto(selectedPhotoUri);
+                ContentResolver contentResolver = this.getContentResolver();
+                contentResolver.takePersistableUriPermission(selectedPhotoUri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
             }
+
     }
 
     @Override
