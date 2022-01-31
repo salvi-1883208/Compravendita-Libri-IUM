@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.NewAdMeetingPlaceActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sapienza_map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="Selezionare punto d'incontro"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/sapienza_map"
+        android:layout_width="952px"
+        android:layout_height="1075px"
+        android:layout_centerInParent="true"
+        android:src="@drawable/sapienza_map_image" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sapienza_map"
+        android:layout_alignTop="@id/sapienza_map"
+        android:layout_marginLeft="250px"
+        android:layout_marginTop="230px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/darwin_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/darkGrey"
+            android:padding="5dp"
+            android:text="Edificio C. Darwin"
+            android:textColor="@color/white"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/darwin_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/meeting_place_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sapienza_map"
+        android:layout_alignTop="@id/sapienza_map"
+        android:layout_marginLeft="540px"
+        android:layout_marginTop="360px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fermi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/darkGrey"
+            android:padding="5dp"
+            android:text="Edificio Enrico Fermi"
+            android:textColor="@color/white"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/fermi_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/meeting_place_icon" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sapienza_map"
+        android:layout_alignTop="@id/sapienza_map"
+        android:layout_marginLeft="263px"
+        android:layout_marginTop="543px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/minerva_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/darkGrey"
+            android:padding="5dp"
+            android:text="Piazzale della Minerva"
+            android:textColor="@color/white"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/minerva_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/meeting_place_icon" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/meeting_place_continua_button"
+        android:layout_width="160dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/sapienza_map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:letterSpacing="0"
+        android:text="Continua"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

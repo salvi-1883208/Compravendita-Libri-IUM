@@ -49,6 +49,7 @@ public class NewAdActivity extends AppCompatActivity {
         NewAdListAdapter adapter = new NewAdListAdapter(this, booksToSell);
         binding.searchListview.setAdapter(adapter);
 
+        //TODO quando si cerca e si inserisce uno spazio la ricerca ritorna nulla
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {        //quando l'user fa enter

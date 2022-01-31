@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompravenditaLibriIUM">
         <activity
+            android:name=".activities.NewAdRecapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NewAdMeetingPlaceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NewAdPriceActivity"
             android:exported="false" />
         <activity
