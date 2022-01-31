@@ -3,7 +3,7 @@ package com.example.compravendita_libri_ium;
 public enum MeetingPlace {
     FERMI("Edificio Enrico Fermi", "CU033"),
     DARWIN("Edificio Charles Darwin", "CU026"),
-    MINERVA("Piazzale della Minerva");
+    MINERVA("Piazzale della Minerva", "");
 
     private final String description;
     private String buildingCode;
