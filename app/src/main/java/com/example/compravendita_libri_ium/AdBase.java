@@ -1,18 +1,21 @@
 package com.example.compravendita_libri_ium;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.ArrayList;
 
 public class AdBase implements Parcelable {
     private UsedBook usedBook;
     private double price;
-    private int[] photosId;
+    private ArrayList<Uri> photos;
     private MeetingPlace meetingPlace;
 
-    public AdBase(UsedBook book, double price, int[] photosId, MeetingPlace meetingPlace) {
+    public AdBase(UsedBook book, double price, ArrayList<Uri> photos, MeetingPlace meetingPlace) {
         this.usedBook = book;
         this.price = price;
-        this.photosId = photosId;
+        this.photos = photos;
         this.meetingPlace = meetingPlace;
     }
 
@@ -28,8 +31,8 @@ public class AdBase implements Parcelable {
         return price % 1 == 0 ? Long.toString(Math.round(price)) + "€" : Double.toString(price) + "€";
     }
 
-    public int[] getPhotos() {
-        return photosId;
+    public ArrayList<Uri> getPhotos() {
+        return photos;
     }
 
     public MeetingPlace getMeetingPlace() {
@@ -43,33 +46,8 @@ public class AdBase implements Parcelable {
                 "\nPunto di incontro: " + meetingPlace;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.usedBook, flags);
-        dest.writeDouble(this.price);
-        dest.writeIntArray(this.photosId);
-        dest.writeInt(this.meetingPlace == null ? -1 : this.meetingPlace.ordinal());
-    }
-
-    public void readFromParcel(Parcel source) {
-        this.usedBook = source.readParcelable(UsedBook.class.getClassLoader());
-        this.price = source.readDouble();
-        this.photosId = source.createIntArray();
-        int tmpMeetingPlace = source.readInt();
-        this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
-    }
-
-    protected AdBase(Parcel in) {
-        this.usedBook = in.readParcelable(UsedBook.class.getClassLoader());
-        this.price = in.readDouble();
-        this.photosId = in.createIntArray();
-        int tmpMeetingPlace = in.readInt();
-        this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
+    public static final Uri drawableToUri(int drawableId) {
+        return Uri.parse("android.resource://com.example.compravendita_libri_ium/" + drawableId);
     }
 
     @Override
@@ -87,7 +65,36 @@ public class AdBase implements Parcelable {
                 adBase.getPrice() == price;
     }
 
-    public static final Parcelable.Creator<AdBase> CREATOR = new Parcelable.Creator<AdBase>() {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(this.usedBook, flags);
+        dest.writeDouble(this.price);
+        dest.writeTypedList(this.photos);
+        dest.writeInt(this.meetingPlace == null ? -1 : this.meetingPlace.ordinal());
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.usedBook = source.readParcelable(UsedBook.class.getClassLoader());
+        this.price = source.readDouble();
+        this.photos = source.createTypedArrayList(Uri.CREATOR);
+        int tmpMeetingPlace = source.readInt();
+        this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
+    }
+
+    protected AdBase(Parcel in) {
+        this.usedBook = in.readParcelable(UsedBook.class.getClassLoader());
+        this.price = in.readDouble();
+        this.photos = in.createTypedArrayList(Uri.CREATOR);
+        int tmpMeetingPlace = in.readInt();
+        this.meetingPlace = tmpMeetingPlace == -1 ? null : MeetingPlace.values()[tmpMeetingPlace];
+    }
+
+    public static final Creator<AdBase> CREATOR = new Creator<AdBase>() {
         @Override
         public AdBase createFromParcel(Parcel source) {
             return new AdBase(source);
