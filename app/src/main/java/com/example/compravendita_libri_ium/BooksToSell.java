@@ -1,7 +1,6 @@
 package com.example.compravendita_libri_ium;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BooksToSell {
 
@@ -14,8 +13,8 @@ public class BooksToSell {
     private BooksToSell() {
         books.add(Books.FISICA_I_2008.getBook());
         books.add(Books.FISICA_I_2011.getBook());
-        books.add(Books.FISICA_II_2011.getBook());
         books.add(Books.FISICA_II_2008.getBook());
+        books.add(Books.FISICA_II_2011.getBook());
     }
 
     //Singleton

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.TextView;
 
@@ -48,6 +49,8 @@ public class NewAdListAdapter extends ArrayAdapter<Book> {
         TextView bookEdition = convertView.findViewById(R.id.new_ad_book_infos);
 
         bookTitle.setText(book.getTitle());
+        Button button = (Button) convertView.findViewById(R.id.new_ad_infos_button);
+        button.setVisibility(View.GONE);
         bookEdition.setText("Edizione: " + Integer.toString(book.getEdition()));
 
 

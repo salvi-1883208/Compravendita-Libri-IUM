@@ -3,7 +3,7 @@ package com.example.compravendita_libri_ium;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Ad implements Parcelable {
+public class Ad implements Parcelable, Comparable<Ad> {
     private boolean approved = false;
     private AdBase adBase;
 
@@ -28,6 +28,7 @@ public class Ad implements Parcelable {
     public String toString() {
         return adBase + "\nApprovato: " + approved + "\n";
     }
+
 
     @Override
     public int describeContents() {
@@ -60,7 +61,8 @@ public class Ad implements Parcelable {
 
         Ad ad = (Ad) o;
 
-        return adBase.equals(ad.getAdBase());
+        return adBase.equals(ad.getAdBase()) &&
+                (ad.isApproved() == isApproved());
     }
 
     public static final Parcelable.Creator<Ad> CREATOR = new Parcelable.Creator<Ad>() {
@@ -74,4 +76,13 @@ public class Ad implements Parcelable {
             return new Ad[size];
         }
     };
+
+    @Override
+    public int compareTo(Ad ad) {
+        if (this.equals(ad))
+            return 0;
+        if (this.isApproved() && !ad.isApproved())
+            return 1;
+        return this.toString().compareToIgnoreCase(ad.toString());
+    }
 }

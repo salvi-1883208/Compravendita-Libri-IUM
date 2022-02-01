@@ -1,6 +1,7 @@
 package com.example.compravendita_libri_ium;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ActiveAds {
 
@@ -11,7 +12,9 @@ public class ActiveAds {
     private ActiveAds() {
         for (Ads ad : Ads.values())
             ads.add(ad.getAd());
+        sort();
     }
+
 
     public static ActiveAds getInstance() {
         if (instance == null)
@@ -24,10 +27,14 @@ public class ActiveAds {
     }
 
     public static void addAd(Ad ad) {
-        ads.add(ad);
+        ads.add(0, ad);
     }
 
     public static boolean removeAd(Ad ad) {
         return ads.remove(ad);
+    }
+
+    private static void sort() {
+        Collections.sort(ads);
     }
 }
