@@ -54,6 +54,10 @@ public class UsedBook implements Parcelable {
         return subConditions;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
     @Override
     public String toString() {
         return book.toString();
