@@ -62,8 +62,8 @@ public class NewAdActivity extends AppCompatActivity {
             }
         });
         binding.searchListview.setOnItemClickListener((adapterView, view, position, l) -> {
-            TextView textView = (TextView) view.findViewById(R.id.new_ad_book_infos);
-            Button button = (Button) view.findViewById(R.id.new_ad_infos_button);
+            TextView textView = view.findViewById(R.id.new_ad_book_infos);
+            Button button = view.findViewById(R.id.new_ad_infos_button);
 
             if (button.getVisibility() == View.GONE) {
                 textView.setText(booksToSell.get(position).getDescription());
@@ -76,7 +76,7 @@ public class NewAdActivity extends AppCompatActivity {
 
             } else {
                 button.setVisibility(View.GONE);
-                textView.setText("Edizione: " + Integer.toString(booksToSell.get(position).getEdition()));
+                textView.setText("Edizione: " + booksToSell.get(position).getEdition());
             }
         });
 

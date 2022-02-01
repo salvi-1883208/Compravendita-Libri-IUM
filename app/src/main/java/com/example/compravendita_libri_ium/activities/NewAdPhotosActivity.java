@@ -34,17 +34,14 @@ public class NewAdPhotosActivity extends AppCompatActivity {
 
         NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
 
-        RecyclerViewAddPhotoAdapter adapter = new RecyclerViewAddPhotoAdapter(this, new ArrayList<Uri>(), binding.addPhotoContinuaButton);
+        RecyclerViewAddPhotoAdapter adapter = new RecyclerViewAddPhotoAdapter(this, new ArrayList<>(), binding.addPhotoContinuaButton);
         binding.recyclerPhotos.setAdapter(adapter);
         binding.recyclerPhotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        binding.addPhotoContinuaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(NewAdPhotosActivity.this, NewAdPriceActivity.class);
-                intent.putExtra("builder", builder.setPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
-                startActivity(intent);
-            }
+        binding.addPhotoContinuaButton.setOnClickListener(view -> {
+            Intent intent = new Intent(NewAdPhotosActivity.this, NewAdPriceActivity.class);
+            intent.putExtra("builder", builder.setPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
+            startActivity(intent);
         });
 
         if (builder.hasSubCondition())

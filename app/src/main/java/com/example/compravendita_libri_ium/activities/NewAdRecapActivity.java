@@ -49,7 +49,7 @@ public class NewAdRecapActivity extends AppCompatActivity {
     }
 
     private String priceToString(double price) {
-        return price % 1 == 0 ? Long.toString(Math.round(price)) + "€" : Double.toString(price) + "€";
+        return price % 1 == 0 ? Math.round(price) + "€" : price + "€";
     }
 
     private String bookConditions(NewAdBuilder builder) {

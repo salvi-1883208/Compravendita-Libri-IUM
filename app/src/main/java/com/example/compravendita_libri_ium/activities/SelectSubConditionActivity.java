@@ -29,7 +29,7 @@ public class SelectSubConditionActivity extends AppCompatActivity {
         binding = ActivitySelectSubConditionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
+        NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
         getSupportActionBar().setTitle("Passo 3: Condizioni specifiche");
 

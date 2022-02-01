@@ -6,21 +6,29 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public enum Ads {
-    A(new Ad(new AdBase(Books.ANALISI_MAT.getBook().toUsedBook(BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_MATITA_O_PENNA))),
-            30.0, new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.analisi_matematica))), MeetingPlace.FERMI), Sellers.MATTEO_ROSSI.getSeller(), true)),
-    B(new Ad(new AdBase(Books.FISICA_I_2008.getBook().toUsedBook(BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_MATITA_O_PENNA))),
-            30.0, new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))), MeetingPlace.FERMI), Sellers.MATTEO_ROSSI.getSeller(), true)),
-    C(new Ad(new AdBase(Books.FISICA_I_2008.getBook().toUsedBook(BookCondition.DISCRETE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.APPUNTI_SU_PAGINE))),
-            25.0, new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))), MeetingPlace.FERMI), Sellers.MATTEO_BIANCHI.getSeller(), true)),
-    D(new Ad(new AdBase(Books.FISICA_I_2008.getBook().toUsedBook(BookCondition.DISCRETE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.APPUNTI_SU_PAGINE))),
-            25.0, new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))), MeetingPlace.FERMI), Sellers.LORENZO_VERDI.getSeller(), true)),
-    E(new Ad(new AdBase(Books.FISICA_I_2011.getBook().toUsedBook(BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_EVIDENZ))),
-            25.0, new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))), MeetingPlace.FERMI), Sellers.NICOLA_GALLI.getSeller(), true));
+    A(Books.ANALISI_MAT.getBook(), BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_MATITA_O_PENNA)), 30.0,
+            new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.analisi_matematica))), MeetingPlace.FERMI, Sellers.MATTEO_ROSSI.getSeller()),
+
+    B(Books.FISICA_I_2008.getBook(), BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_MATITA_O_PENNA)), 30.0,
+            new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))),
+            MeetingPlace.FERMI, Sellers.MATTEO_ROSSI.getSeller()),
+
+    C(Books.FISICA_I_2008.getBook(), BookCondition.DISCRETE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.APPUNTI_SU_PAGINE)), 25.0,
+            new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))),
+            MeetingPlace.FERMI, Sellers.MATTEO_BIANCHI.getSeller()),
+
+    D(Books.FISICA_I_2008.getBook(), BookCondition.DISCRETE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.APPUNTI_SU_PAGINE)), 25.0,
+            new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back)))
+            , MeetingPlace.FERMI, Sellers.LORENZO_VERDI.getSeller()),
+
+    E(Books.FISICA_I_2011.getBook(), BookCondition.BUONE_CONDIZIONI, new ArrayList<>(Arrays.asList(BookSubCondition.SOTT_EVIDENZ)), 25.0,
+            new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.lezioni_di_fisica_front), AdBase.drawableToUri(R.drawable.lezioni_di_fisica_back))),
+            MeetingPlace.FERMI, Sellers.NICOLA_GALLI.getSeller());
 
     private Ad ad;
 
-    Ads(Ad ad) {
-        this.ad = ad;
+    Ads(Book book, BookCondition bookCondition, ArrayList<BookSubCondition> bookSubConditions, double price, ArrayList<Uri> photos, MeetingPlace meetingPlace, Seller seller) {
+        this.ad = new Ad(new AdBase(book.toUsedBook(bookCondition, bookSubConditions), price, photos, meetingPlace), seller, true);
     }
 
     public Ad getAd() {

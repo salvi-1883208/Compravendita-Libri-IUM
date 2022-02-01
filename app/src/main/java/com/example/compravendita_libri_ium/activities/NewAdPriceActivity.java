@@ -25,7 +25,7 @@ public class NewAdPriceActivity extends AppCompatActivity {
         binding = ActivityNewAdPriceBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
+        NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
         binding.newAdPriceInput.addTextChangedListener(new TextWatcher() {
             @Override

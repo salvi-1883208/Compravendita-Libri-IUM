@@ -46,21 +46,18 @@ public class AdProfileActivity extends AppCompatActivity {
             binding.adMeetingPlace.setText(ad.getAdBase().getMeetingPlace().toString());
             binding.adPrice.setText(ad.getAdBase().getPriceString());
             binding.approvation.setText(approvation(ad));
-            binding.trashCan.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AdProfileActivity.this);
-                    builder.setPositiveButton("Si", (dialog, id) -> {
-                        // User clicked OK button
-                        ActiveAds.getInstance().removeMyAd(ad);
-                        finish();
-                    });
-                    builder.setNegativeButton("No", (dialog, id) -> {
-                    });
-                    builder.setTitle("Sei sicuro di voler rimuovere l'annuncio?");
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
+            binding.trashCan.setOnClickListener(view -> {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AdProfileActivity.this);
+                builder.setPositiveButton("Si", (dialog, id) -> {
+                    // User clicked OK button
+                    ActiveAds.getInstance().removeMyAd(ad);
+                    finish();
+                });
+                builder.setNegativeButton("No", (dialog, id) -> {
+                });
+                builder.setTitle("Sei sicuro di voler rimuovere l'annuncio?");
+                AlertDialog dialog = builder.create();
+                dialog.show();
             });
 
             getSupportActionBar().setTitle(ad.getAdBase().getUsedBook().getTitle());
