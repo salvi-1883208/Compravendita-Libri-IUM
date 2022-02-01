@@ -9,7 +9,7 @@ public class MyActiveOrders {
     private static ArrayList<Order> orders = new ArrayList<>();
 
     private MyActiveOrders() {
-        for (Orders order : Orders.values())
+        for (MyOrders order : MyOrders.values())
             orders.add(order.getOrder());
     }
 

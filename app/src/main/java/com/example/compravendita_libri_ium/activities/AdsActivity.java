@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.compravendita_libri_ium.MyActiveAds;
+import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
 import com.example.compravendita_libri_ium.AdsListAdapter;
 import com.example.compravendita_libri_ium.NewAdBuilder;
@@ -31,7 +31,7 @@ public class AdsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //Una lista con tutti gli annunci da mostrare
-        ArrayList<Ad> adsArrayList = MyActiveAds.getInstance().getAds();
+        ArrayList<Ad> adsArrayList = ActiveAds.getInstance().getMyAds();
 
         AdsListAdapter adsListAdapter = new AdsListAdapter(AdsActivity.this, adsArrayList);
         binding.listview.setAdapter(adsListAdapter);

@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CompravenditaLibriIUM">
         <activity
+            android:name=".activities.NewOrderBooksForCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NewOrderCourseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NewAdRecapActivity"
             android:exported="false" />
         <activity

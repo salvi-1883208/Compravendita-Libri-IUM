@@ -6,10 +6,16 @@ import android.os.Parcelable;
 public class Ad implements Parcelable, Comparable<Ad> {
     private boolean approved = false;
     private AdBase adBase;
+    private Seller seller = null;
 
     public Ad(AdBase adBase, boolean approved) {
+        this(adBase, null, approved);
+    }
+
+    public Ad(AdBase adBase, Seller seller, boolean approved) {
         this.adBase = adBase;
         this.approved = approved;
+        this.seller = seller;
     }
 
     public AdBase getAdBase() {
@@ -22,6 +28,10 @@ public class Ad implements Parcelable, Comparable<Ad> {
 
     public void approve() {
         approved = true;
+    }
+
+    public Seller getSeller() {
+        return seller;
     }
 
     @Override

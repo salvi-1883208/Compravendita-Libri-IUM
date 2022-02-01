@@ -24,8 +24,9 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Sezione compravendita libri");
 
         binding.compraLibri.setOnClickListener(view -> {
-//            Intent intent = new Intent(HomeActivity.this, SelectCourseActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(HomeActivity.this, NewOrderCourseActivity.class);
+            intent.putExtra("start", true);
+            startActivity(intent);
         });
 
         binding.vendiLibri.setOnClickListener(view -> {

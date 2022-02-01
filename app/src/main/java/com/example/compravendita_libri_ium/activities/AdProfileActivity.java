@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.compravendita_libri_ium.MyActiveAds;
+import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.Ad;
 import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.R;
@@ -52,7 +52,7 @@ public class AdProfileActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdProfileActivity.this);
                     builder.setPositiveButton("Si", (dialog, id) -> {
                         // User clicked OK button
-                        System.out.println(MyActiveAds.getInstance().removeAd(ad));
+                        ActiveAds.getInstance().removeMyAd(ad);
                         finish();
                     });
                     builder.setNegativeButton("No", (dialog, id) -> {

@@ -40,6 +40,12 @@ public class OrdersActivity extends AppCompatActivity {
             intent.putExtra("order", orderArrayList.get(position));
             startActivity(intent);
         });
+
+        binding.newOrderOrAd.setOnClickListener(view -> {
+            Intent intent = new Intent(OrdersActivity.this, NewOrderCourseActivity.class);
+            intent.putExtra("start", false);
+            startActivity(intent);
+        });
     }
 
     @Override
