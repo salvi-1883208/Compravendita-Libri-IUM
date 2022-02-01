@@ -22,6 +22,7 @@ public class BookProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //TODO implementare lo zoom sulle immagini e aggiungere il pulsante per vedere la mappa
         super.onCreate(savedInstanceState);
         binding = ActivityInfoOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

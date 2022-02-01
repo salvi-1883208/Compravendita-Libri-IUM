@@ -86,7 +86,7 @@ public class RecyclerViewAddPhotoAdapter extends RecyclerView.Adapter<RecyclerVi
                 continueButton.setClickable(false);
                 continueButton.setBackgroundColor(context.getResources().getColor(R.color.lightGray));
             }
-            RecyclerViewAddPhotoAdapter.this.notifyDataSetChanged(); //Andrebbe cambiato ma io non ci riesco, troppi casini
+            RecyclerViewAddPhotoAdapter.this.notifyDataSetChanged(); //TODO Andrebbe cambiato ma non so come risolvere
         });
         holder.addPhotoButton.setVisibility(View.GONE);
         holder.removePhotoButton.setVisibility(View.VISIBLE);

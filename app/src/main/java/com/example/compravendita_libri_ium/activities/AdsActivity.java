@@ -23,6 +23,7 @@ public class AdsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //TODO cambiare l'ordine in cui vengono mostrati gli annunci
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().setTitle("Annunci Inseriti");

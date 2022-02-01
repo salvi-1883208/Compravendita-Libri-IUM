@@ -25,6 +25,7 @@ public class AdProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //TODO implementare lo zoom sulle immagini e aggiungere il pulsante per vedere la mappa
         super.onCreate(savedInstanceState);
         binding = ActivityAdProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
