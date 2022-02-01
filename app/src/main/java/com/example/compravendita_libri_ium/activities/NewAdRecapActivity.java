@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.compravendita_libri_ium.ActiveAds;
+import com.example.compravendita_libri_ium.MyActiveAds;
 import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
@@ -34,7 +34,7 @@ public class NewAdRecapActivity extends AppCompatActivity {
         binding.newAdMeetingPlace.setText(builder.getMeetingPlace().getDescription());
 
         binding.recapFinishButton.setOnClickListener(view -> {
-            ActiveAds.addAd(builder.build());
+            MyActiveAds.addAd(builder.build());
 
             Intent intent;
             if (builder.getStart()) {

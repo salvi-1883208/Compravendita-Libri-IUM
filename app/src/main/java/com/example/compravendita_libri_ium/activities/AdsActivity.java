@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.compravendita_libri_ium.ActiveAds;
+import com.example.compravendita_libri_ium.MyActiveAds;
 import com.example.compravendita_libri_ium.Ad;
 import com.example.compravendita_libri_ium.AdsListAdapter;
 import com.example.compravendita_libri_ium.NewAdBuilder;
@@ -23,7 +23,6 @@ public class AdsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //TODO cambiare l'ordine in cui vengono mostrati gli annunci
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().setTitle("Annunci Inseriti");
@@ -32,7 +31,7 @@ public class AdsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //Una lista con tutti gli annunci da mostrare
-        ArrayList<Ad> adsArrayList = ActiveAds.getInstance().getAds();
+        ArrayList<Ad> adsArrayList = MyActiveAds.getInstance().getAds();
 
         AdsListAdapter adsListAdapter = new AdsListAdapter(AdsActivity.this, adsArrayList);
         binding.listview.setAdapter(adsListAdapter);

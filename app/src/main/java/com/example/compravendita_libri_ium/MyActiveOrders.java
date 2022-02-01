@@ -2,20 +2,20 @@ package com.example.compravendita_libri_ium;
 
 import java.util.ArrayList;
 
-public class ActiveOrders {
+public class MyActiveOrders {
 
-    private static ActiveOrders instance = null;
+    private static MyActiveOrders instance = null;
 
     private static ArrayList<Order> orders = new ArrayList<>();
 
-    private ActiveOrders() {
+    private MyActiveOrders() {
         for (Orders order : Orders.values())
             orders.add(order.getOrder());
     }
 
-    public static ActiveOrders getInstance() {
+    public static MyActiveOrders getInstance() {
         if (instance == null)
-            instance = new ActiveOrders();
+            instance = new MyActiveOrders();
         return instance;
     }
 

@@ -3,22 +3,22 @@ package com.example.compravendita_libri_ium;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ActiveAds {
+public class MyActiveAds {
 
-    private static ActiveAds instance = null;
+    private static MyActiveAds instance = null;
 
     private static ArrayList<Ad> ads = new ArrayList<>();
 
-    private ActiveAds() {
+    private MyActiveAds() {
         for (Ads ad : Ads.values())
             ads.add(ad.getAd());
         sort();
     }
 
 
-    public static ActiveAds getInstance() {
+    public static MyActiveAds getInstance() {
         if (instance == null)
-            instance = new ActiveAds();
+            instance = new MyActiveAds();
         return instance;
     }
 

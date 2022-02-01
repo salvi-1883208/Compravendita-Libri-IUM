@@ -1,19 +1,16 @@
 package com.example.compravendita_libri_ium.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
-import com.example.compravendita_libri_ium.OrdersListAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.compravendita_libri_ium.MyActiveOrders;
 import com.example.compravendita_libri_ium.Order;
-import com.example.compravendita_libri_ium.Orders;
+import com.example.compravendita_libri_ium.OrdersListAdapter;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityOrdersOrAdsBinding;
 
@@ -32,12 +29,7 @@ public class OrdersActivity extends AppCompatActivity {
         binding = ActivityOrdersOrAdsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ArrayList<Order> orderArrayList = new ArrayList<>();
-
-        //Riempio una lista con tutti gli ordini da mostrare
-        for (Orders order : Orders.values()) {
-            orderArrayList.add(order.getOrder());
-        }
+        ArrayList<Order> orderArrayList = MyActiveOrders.getInstance().getOrders();
 
         OrdersListAdapter ordersListAdapter = new OrdersListAdapter(OrdersActivity.this, orderArrayList);
 
@@ -48,7 +40,6 @@ public class OrdersActivity extends AppCompatActivity {
             intent.putExtra("order", orderArrayList.get(position));
             startActivity(intent);
         });
-
     }
 
     @Override
