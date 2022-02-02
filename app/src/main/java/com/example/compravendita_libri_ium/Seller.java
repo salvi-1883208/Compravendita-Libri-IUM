@@ -29,7 +29,7 @@ public class Seller implements Parcelable {
 
     @Override
     public String toString() {
-        return name + "\n" + Integer.toString(id);
+        return name + "\n" + id;
     }
 
     @Override

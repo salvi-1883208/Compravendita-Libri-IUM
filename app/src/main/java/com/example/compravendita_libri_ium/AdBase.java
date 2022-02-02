@@ -42,7 +42,7 @@ public class AdBase implements Parcelable {
     @Override
     public String toString() {
         return usedBook +
-                "Prezzo: " + price + '€' +
+                "\nPrezzo: " + price + '€' +
                 "\nPunto di incontro: " + meetingPlace;
     }
 

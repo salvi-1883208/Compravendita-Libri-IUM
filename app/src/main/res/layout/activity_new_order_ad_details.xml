@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    tools:context=".activities.NewOrderAdDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -92,7 +94,7 @@
             android:layout_alignStart="@id/view1"
             android:layout_marginTop="10dp"
             android:text="Informazioni aggiuntive:"
-            android:textSize="22dp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -103,7 +105,7 @@
             android:layout_alignStart="@id/view3"
             android:layout_marginTop="10dp"
             android:text="Condizioni:"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -113,7 +115,7 @@
             android:layout_below="@+id/view4"
             android:layout_alignStart="@id/view4"
             android:text="usato come nuovo\nrovinato distrutto"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/view5"
@@ -123,7 +125,7 @@
             android:layout_alignStart="@id/view3"
             android:layout_marginTop="10dp"
             android:text="Luogo d'incontro:"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -133,7 +135,7 @@
             android:layout_below="@+id/view5"
             android:layout_alignStart="@id/view5"
             android:text="Edificio la sapienza di roma -CUOAI"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <View
             android:id="@+id/line2"
@@ -151,7 +153,7 @@
             android:layout_below="@id/line2"
             android:layout_alignStart="@id/view1"
             android:text="Prezzo: "
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -161,7 +163,7 @@
             android:layout_below="@+id/line2"
             android:layout_toEndOf="@id/view6"
             android:text="12€"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <View
             android:id="@+id/line3"
@@ -179,7 +181,7 @@
             android:layout_below="@id/line3"
             android:layout_alignStart="@id/view1"
             android:text="Foto:"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -187,20 +189,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/view7"
-            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
             android:layout_marginTop="15dp" />
 
-        <TextView
-            android:id="@+id/time_left"
+
+        <Button
+            android:id="@+id/new_order_acquista_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/recycler_images"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="Libro riservato ancora per: 1 giorno"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="Acquista ora: 99€"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
+    </RelativeLayout>
 
 </ScrollView>

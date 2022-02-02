@@ -34,31 +34,13 @@ public class Ad implements Parcelable, Comparable<Ad> {
         return seller;
     }
 
+    public static Order toOrder(Ad ad) {
+        return new Order(ad.getAdBase(), ad.getSeller());
+    }
+
     @Override
     public String toString() {
-        return adBase + "\nApprovato: " + approved + "\n";
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte(this.approved ? (byte) 1 : (byte) 0);
-        dest.writeParcelable(this.adBase, flags);
-    }
-
-    public void readFromParcel(Parcel source) {
-        this.approved = source.readByte() != 0;
-        this.adBase = source.readParcelable(AdBase.class.getClassLoader());
-    }
-
-    protected Ad(Parcel in) {
-        this.approved = in.readByte() != 0;
-        this.adBase = in.readParcelable(AdBase.class.getClassLoader());
+        return adBase + "\nApprovato: " + approved + "\n" + (seller == null ? "" : seller.getName());
     }
 
     @Override
@@ -75,7 +57,40 @@ public class Ad implements Parcelable, Comparable<Ad> {
                 (ad.isApproved() == isApproved());
     }
 
-    public static final Parcelable.Creator<Ad> CREATOR = new Parcelable.Creator<Ad>() {
+    @Override
+    public int compareTo(Ad ad) {
+        if (this.equals(ad))
+            return 0;
+        if (this.isApproved() && !ad.isApproved())
+            return 1;
+        return this.toString().compareToIgnoreCase(ad.toString());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeByte(this.approved ? (byte) 1 : (byte) 0);
+        dest.writeParcelable(this.adBase, flags);
+        dest.writeParcelable(this.seller, flags);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.approved = source.readByte() != 0;
+        this.adBase = source.readParcelable(AdBase.class.getClassLoader());
+        this.seller = source.readParcelable(Seller.class.getClassLoader());
+    }
+
+    protected Ad(Parcel in) {
+        this.approved = in.readByte() != 0;
+        this.adBase = in.readParcelable(AdBase.class.getClassLoader());
+        this.seller = in.readParcelable(Seller.class.getClassLoader());
+    }
+
+    public static final Creator<Ad> CREATOR = new Creator<Ad>() {
         @Override
         public Ad createFromParcel(Parcel source) {
             return new Ad(source);
@@ -86,13 +101,4 @@ public class Ad implements Parcelable, Comparable<Ad> {
             return new Ad[size];
         }
     };
-
-    @Override
-    public int compareTo(Ad ad) {
-        if (this.equals(ad))
-            return 0;
-        if (this.isApproved() && !ad.isApproved())
-            return 1;
-        return this.toString().compareToIgnoreCase(ad.toString());
-    }
 }
