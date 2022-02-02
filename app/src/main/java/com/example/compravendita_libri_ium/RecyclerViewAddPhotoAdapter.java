@@ -1,9 +1,7 @@
 package com.example.compravendita_libri_ium;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.compravendita_libri_ium.activities.NewAdPhotosActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -24,11 +23,13 @@ public class RecyclerViewAddPhotoAdapter extends RecyclerView.Adapter<RecyclerVi
     private static ArrayList<Uri> images;
     private Context context;
     private Button continueButton;
+    private BottomSheetDialog bottomSheetDialog;
 
-    public RecyclerViewAddPhotoAdapter(Context context, ArrayList<Uri> images, Button continueButton) {
+    public RecyclerViewAddPhotoAdapter(Context context, ArrayList<Uri> images, Button continueButton, BottomSheetDialog bottomSheetDialog) {
         this.images = images;
         this.context = context;
         this.continueButton = continueButton;
+        this.bottomSheetDialog = bottomSheetDialog;
     }
 
     public ArrayList<Uri> getPhotos() {
@@ -44,6 +45,17 @@ public class RecyclerViewAddPhotoAdapter extends RecyclerView.Adapter<RecyclerVi
             continueButton.setBackgroundColor(context.getResources().getColor(R.color.sapienza));
         }
         RecyclerViewAddPhotoAdapter.this.notifyItemInserted(images.size() - 1);
+    }
+
+    public void addPhotos(ArrayList<Uri> uris) {
+        images.addAll(uris);
+        if (continueButton.getVisibility() == View.GONE)
+            continueButton.setVisibility(View.VISIBLE);
+        else {
+            continueButton.setClickable(true);
+            continueButton.setBackgroundColor(context.getResources().getColor(R.color.sapienza));
+        }
+        RecyclerViewAddPhotoAdapter.this.notifyDataSetChanged();
     }
 
 
@@ -69,10 +81,8 @@ public class RecyclerViewAddPhotoAdapter extends RecyclerView.Adapter<RecyclerVi
         holder.removePhotoButton.setVisibility(View.GONE);
 
         holder.addPhotoButton.setOnClickListener(view -> {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
-            ((Activity) context).startActivityForResult(Intent.createChooser(intent, "Seleziona una foto"), SELECT_PICTURE);
+            bottomSheetDialog.show(((NewAdPhotosActivity) context).getSupportFragmentManager(),
+                    "ModalBottomSheet");
         });
     }
 
