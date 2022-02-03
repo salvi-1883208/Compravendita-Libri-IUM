@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,12 +40,12 @@ public class NewAdRecapActivity extends AppCompatActivity {
             Intent intent;
             if (builder.getStart()) {
                 intent = new Intent(getApplicationContext(), HomeActivity.class);
+                Toast.makeText(getApplicationContext(), "Libro correttamente aggiunto per la vendita", Toast.LENGTH_LONG).show();
             } else {
                 intent = new Intent(getApplicationContext(), AdsActivity.class);
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-
         });
     }
 
