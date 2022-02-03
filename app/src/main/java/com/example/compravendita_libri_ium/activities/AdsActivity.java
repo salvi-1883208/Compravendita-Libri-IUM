@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.ActiveAds;
@@ -24,8 +26,9 @@ public class AdsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getSupportActionBar().setTitle("Annunci Inseriti");
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Annunci Inseriti");
 
         binding = ActivityOrdersOrAdsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

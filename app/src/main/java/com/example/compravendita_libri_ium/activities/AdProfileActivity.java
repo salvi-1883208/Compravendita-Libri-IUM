@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -59,9 +60,9 @@ public class AdProfileActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             });
-
-            getSupportActionBar().setTitle(ad.getAdBase().getUsedBook().getTitle());
-
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText(ad.getAdBase().getUsedBook().getTitle());
         }
     }
 

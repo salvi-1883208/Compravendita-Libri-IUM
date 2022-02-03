@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.NewAdBuilder;
@@ -51,10 +53,13 @@ public class NewAdPriceActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+
         if (builder.hasSubCondition())
-            getSupportActionBar().setTitle("Passo 5: Prezzo");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 5: Prezzo");
         else
-            getSupportActionBar().setTitle("Passo 4: Prezzo");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 4: Prezzo");
     }
 
     @Override

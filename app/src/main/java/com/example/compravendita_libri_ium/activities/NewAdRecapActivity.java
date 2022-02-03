@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.ActiveAds;
@@ -25,7 +27,9 @@ public class NewAdRecapActivity extends AppCompatActivity {
         binding = ActivityNewAdRecapBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().setTitle("Riepilogo annuncio");
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Riepilogo annuncio");
 
         NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
