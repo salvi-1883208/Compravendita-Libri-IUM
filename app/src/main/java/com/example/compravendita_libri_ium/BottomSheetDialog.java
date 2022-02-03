@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
@@ -51,20 +52,24 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
         });
 
         cameraButton.setOnClickListener(v12 -> {
-            counter++; //this is an int
-            String imageFileName = "JPEG_" + counter; //make a better file name
-            File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            File image = null;
             try {
-                image = File.createTempFile(imageFileName, ".jpg", storageDir);
-            } catch (IOException e) {
-                e.printStackTrace();
+                counter++; //this is an int
+                String imageFileName = "JPEG_" + counter; //make a better file name
+                File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                File image = null;
+                try {
+                    image = File.createTempFile(imageFileName, ".jpg", storageDir);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Uri uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", image);
+                Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                ((NewAdPhotosActivity) context).setUri(uri);
+                ((NewAdPhotosActivity) context).startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
+            } catch (Exception e) {
+                Toast.makeText(context, "Errore durante l'apertura della fotocamera, prova ad inserire l'immagine tramite documenti", Toast.LENGTH_LONG).show();
             }
-            Uri uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", image);
-            Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-            ((NewAdPhotosActivity) context).setUri(uri);
-            ((NewAdPhotosActivity) context).startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
         });
         return v;
     }

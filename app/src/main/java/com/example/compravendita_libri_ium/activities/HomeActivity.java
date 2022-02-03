@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
@@ -22,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Sezione compravendita libri");
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);//Night mode disabled
 
         binding.compraLibri.setOnClickListener(view -> {
             Intent intent = new Intent(HomeActivity.this, NewOrderCourseActivity.class);

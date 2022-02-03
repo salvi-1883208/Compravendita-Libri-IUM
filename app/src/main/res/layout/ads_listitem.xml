@@ -9,6 +9,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -21,11 +22,10 @@
                 android:layout_marginStart="5dp"
                 android:src="@drawable/lezioni_di_fisica_front" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:orientation="vertical">
+                android:layout_marginStart="10dp">
 
                 <TextView
                     android:id="@+id/ads_book_title"
@@ -39,22 +39,27 @@
                     android:id="@+id/ads_book_infos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/ads_book_title"
                     android:layout_marginTop="1dp"
                     android:lineSpacingExtra="3dp"
-                    android:text="Info sul libro" />
-            </LinearLayout>
+                    android:text="Info sul libro \n infosul libro \n info sul libroooooooo" />
+
+                <TextView
+                    android:id="@+id/ads_approvation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@id/ads_book_infos"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@id/ads_book_infos"
+                    android:autoSizeMinTextSize="10dp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="end"
+                    android:paddingHorizontal="15dp"
+                    android:text="In attesa di approvazione"
+                    android:textStyle="bold" />
+            </RelativeLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/ads_approvation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="0dp"
-            android:padding="15dp"
-            android:text="In attesa di approvazione"
-            android:textStyle="bold">
-        </TextView>
+
     </RelativeLayout>
 </LinearLayout>

@@ -33,6 +33,7 @@ public class SelectSubConditionActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Passo 3: Condizioni specifiche");
 
+
         if (builder.getBookCondition() == BookCondition.BUONE_CONDIZIONI)
             buoneCondizioni(builder);
         else

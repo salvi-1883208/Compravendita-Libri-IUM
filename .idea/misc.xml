@@ -54,7 +54,7 @@
         <entry key="app/src/main/res/layout/activity_select_sub_condition.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_selected_from_list.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/activity_sell.xml" value="0.2609375" />
-        <entry key="app/src/main/res/layout/ads_listitem.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/ads_listitem.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.21419410004275333" />
         <entry key="app/src/main/res/layout/fragment_item_list_dialog_list_dialog.xml" value="0.21419410004275333" />
         <entry key="app/src/main/res/layout/fragment_item_list_dialog_list_dialog_item.xml" value="0.21419410004275333" />

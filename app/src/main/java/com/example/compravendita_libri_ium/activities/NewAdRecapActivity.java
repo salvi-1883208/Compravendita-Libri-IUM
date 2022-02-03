@@ -40,7 +40,7 @@ public class NewAdRecapActivity extends AppCompatActivity {
             Intent intent;
             if (builder.getStart()) {
                 intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Toast.makeText(getApplicationContext(), "Libro correttamente aggiunto per la vendita", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Annuncio inserito correttamente", Toast.LENGTH_LONG).show();
             } else {
                 intent = new Intent(getApplicationContext(), AdsActivity.class);
             }
