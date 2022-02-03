@@ -2,6 +2,9 @@ package com.example.compravendita_libri_ium.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.compravendita_libri_ium.Ad;
 import com.example.compravendita_libri_ium.Courses;
 import com.example.compravendita_libri_ium.MyActiveOrders;
+import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivityMeetingPlaceMapBinding;
 
 public class MeetingPlaceMapActivity extends AppCompatActivity {
@@ -43,8 +47,7 @@ public class MeetingPlaceMapActivity extends AppCompatActivity {
             if (this.getIntent().getBooleanExtra("start", true)) {
                 intent = new Intent(getApplicationContext(), HomeActivity.class);
                 Toast.makeText(getApplicationContext(), "Libro ordinato", Toast.LENGTH_LONG).show();
-            }
-            else
+            } else
                 intent = new Intent(getApplicationContext(), OrdersActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             MyActiveOrders.getInstance().addOrder(Ad.toOrder(ad));
@@ -52,5 +55,25 @@ public class MeetingPlaceMapActivity extends AppCompatActivity {
                 courses.removeAd(ad);
             startActivity(intent);
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        menu.clear();
+        inflater.inflate(R.menu.close_icon, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.close_button:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
