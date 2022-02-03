@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.R;
+import com.example.compravendita_libri_ium.RecyclerItemClickListener;
 import com.example.compravendita_libri_ium.RecyclerViewImageAdapter;
 import com.example.compravendita_libri_ium.databinding.ActivityInfoOrderBinding;
 
@@ -36,6 +40,19 @@ public class BookProfileActivity extends AppCompatActivity {
             RecyclerViewImageAdapter adapter = new RecyclerViewImageAdapter(this, order.getAdBase().getPhotos());
             binding.recyclerImages.setAdapter(adapter);
             binding.recyclerImages.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            binding.recyclerImages.addOnItemTouchListener(new RecyclerItemClickListener(this, binding.recyclerImages, new RecyclerItemClickListener.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    //Toast.makeText(BookProfileActivity.this, "clicked on " +position, Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(BookProfileActivity.this, CLASSE_FATTA_APPOSTA_PER_MOSTRARE_IMMAGINE_BIG.class);
+                    //startActivity(intent);
+                }
+
+                @Override
+                public void onLongItemClick(View view, int position) {
+
+                }
+            }));
 
             binding.infoLibro.setText(order.getAdBase().getUsedBook().toString());
             binding.infoVenditore.setText(order.getSeller().toString());
