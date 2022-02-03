@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="-20dp"
         android:text="Punto d'incontro scelto dal venditore:"
-        android:textSize="22dp"
+        android:textSize="21dp"
         android:textStyle="bold" />
 
     <ImageView
@@ -23,15 +23,16 @@
         android:layout_centerInParent="true"
         android:src="@drawable/sapienza_map_image" />
 
+
     <LinearLayout
         android:id="@+id/darwin_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/sapienza_map"
         android:layout_alignTop="@id/sapienza_map"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="83dp"
         android:layout_marginLeft="250px"
-        android:layout_marginTop="151dp"
+        android:layout_marginTop="127dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -42,16 +43,16 @@
             android:background="@color/darkGrey"
             android:padding="5dp"
             android:text="Edificio C. Darwin"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <ImageButton
             android:id="@+id/darwin_button"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/meeting_place_icon" />
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/fermi_layout"
@@ -59,9 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/sapienza_map"
         android:layout_alignTop="@id/sapienza_map"
-        android:layout_marginStart="236dp"
+        android:layout_marginStart="201dp"
         android:layout_marginLeft="540px"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="187dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -72,12 +73,13 @@
             android:background="@color/darkGrey"
             android:padding="5dp"
             android:text="Edificio Enrico Fermi"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <ImageButton
             android:id="@+id/fermi_button"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/meeting_place_icon" />
     </LinearLayout>
@@ -88,9 +90,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/sapienza_map"
         android:layout_alignTop="@id/sapienza_map"
-        android:layout_marginStart="123dp"
+        android:layout_marginStart="92dp"
         android:layout_marginLeft="263px"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="251dp"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -101,12 +103,13 @@
             android:background="@color/darkGrey"
             android:padding="5dp"
             android:text="Piazzale della Minerva"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <ImageButton
             android:id="@+id/minerva_button"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/meeting_place_icon" />
     </LinearLayout>
