@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">@color/darkSapienza</item>
         <!-- Customize your theme here. -->
     </style>
+    
+    <style name="ActionBar.Title" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize"> 17sp </item>
+
+    </style>
 </resources>
