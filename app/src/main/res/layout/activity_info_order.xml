@@ -17,7 +17,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:text="Informazioni sul libro:"
-            android:textSize="22sp"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_alignStart="@id/view1"
             android:layout_marginVertical="10dp"
             android:text="eizione:ubfaudbo\noadfbnoaifdnoaindan\n"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:id="@+id/vv"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Venditore:"
-                android:textSize="18sp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pinco pallinopocoddio\n123414"
-                android:textSize="18sp" />
+                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

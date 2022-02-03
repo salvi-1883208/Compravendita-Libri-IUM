@@ -19,7 +19,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
             android:text="Matteo Matti"
-            android:textSize="20sp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <RatingBar
@@ -48,7 +48,7 @@
             android:layout_marginBottom="12dp"
             android:lineSpacingExtra="3dp"
             android:text="Libro usato ma in buone condizioni\nSottolineato a matita o penna\nPrezzo: 99€"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
 
     </RelativeLayout>

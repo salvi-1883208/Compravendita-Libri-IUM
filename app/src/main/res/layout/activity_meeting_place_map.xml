@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="-20dp"
         android:text="Punto d'incontro scelto dal venditore:"
-        android:textSize="22sp"
+        android:textSize="22dp"
         android:textStyle="bold" />
 
     <ImageView
@@ -121,6 +121,6 @@
         android:letterSpacing="0"
         android:text="Continua"
         android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textSize="24dp" />
 
 </RelativeLayout>

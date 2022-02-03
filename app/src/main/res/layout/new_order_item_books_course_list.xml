@@ -48,7 +48,7 @@
             android:paddingVertical="3dp"
             android:text="disponibilità: 99"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:visibility="gone" />
 
         <TextView
@@ -65,7 +65,7 @@
             android:paddingVertical="3dp"
             android:text="Non Disponibile"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:visibility="gone" />
 
         <Button
@@ -80,7 +80,7 @@
             android:paddingHorizontal="25dp"
             android:text="Acquista"
             android:textAllCaps="false"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:visibility="gone" />
 
     </RelativeLayout>

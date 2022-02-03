@@ -19,7 +19,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:text="Informazioni sul libro:"
-            android:textSize="22sp"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_alignStart="@id/view1"
             android:layout_marginVertical="10dp"
             android:text="eizione:ubfaudbo\noadfbnoaifdnoaindan\n"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:id="@+id/vv"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Venditore:"
-                android:textSize="18sp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pinco pallinopocoddio\n123414"
-                android:textSize="18sp" />
+                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
             android:layout_alignStart="@id/view1"
             android:layout_marginTop="10dp"
             android:text="Informazioni aggiuntive:"
-            android:textSize="22sp"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_alignStart="@id/view3"
             android:layout_marginTop="10dp"
             android:text="Condizioni:"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -115,7 +115,7 @@
             android:layout_below="@+id/view4"
             android:layout_alignStart="@id/view4"
             android:text="usato come nuovo\nrovinato distrutto"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/view5"
@@ -125,7 +125,7 @@
             android:layout_alignStart="@id/view3"
             android:layout_marginTop="10dp"
             android:text="Luogo d'incontro:"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -135,7 +135,7 @@
             android:layout_below="@+id/view5"
             android:layout_alignStart="@id/view5"
             android:text="Edificio la sapienza di roma -CUOAI"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <View
             android:id="@+id/line2"
@@ -153,7 +153,7 @@
             android:layout_below="@id/line2"
             android:layout_alignStart="@id/view1"
             android:text="Prezzo: "
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -163,7 +163,7 @@
             android:layout_below="@+id/line2"
             android:layout_toEndOf="@id/view6"
             android:text="12€"
-            android:textSize="18sp" />
+            android:textSize="18dp" />
 
         <View
             android:id="@+id/line3"
@@ -181,7 +181,7 @@
             android:layout_below="@id/line3"
             android:layout_alignStart="@id/view1"
             android:text="Foto:"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -206,7 +206,7 @@
             android:paddingVertical="10dp"
             android:text="Acquista ora: 99€"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
     </RelativeLayout>
 

@@ -23,7 +23,7 @@
         android:layout_alignStart="@id/view1"
         android:layout_marginTop="20dp"
         android:text="Libro:"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_marginVertical="5dp"
         android:layout_marginLeft="15dp"
         android:text="eizione:ubfaudbo\noadfbnoaifdnoaindan\n"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/view4"
@@ -45,7 +45,7 @@
         android:layout_alignStart="@id/view3"
         android:layout_marginTop="10dp"
         android:text="Condizioni:"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_alignStart="@id/view4"
         android:layout_marginTop="5dp"
         android:text="usato come nuovo\nrovinato distrutto"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/view5"
@@ -66,7 +66,7 @@
         android:layout_alignStart="@id/view3"
         android:layout_marginTop="15dp"
         android:text="Luogo d'incontro:"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -77,7 +77,7 @@
         android:layout_alignStart="@id/view5"
         android:layout_marginTop="5dp"
         android:text="Edificio la sapienza di roma -CUOAI"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/view6"
@@ -87,7 +87,7 @@
         android:layout_alignStart="@id/view1"
         android:layout_marginTop="15dp"
         android:text="Prezzo: "
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -98,7 +98,7 @@
         android:layout_marginTop="15dp"
         android:layout_toEndOf="@id/view6"
         android:text="12€"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/recap_finish_button"
@@ -110,7 +110,7 @@
         android:letterSpacing="0"
         android:text="Vendi"
         android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textSize="24dp" />
 
 
 </RelativeLayout>
