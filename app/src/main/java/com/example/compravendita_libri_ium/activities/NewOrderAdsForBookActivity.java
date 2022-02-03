@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.AdsBook;
@@ -25,8 +27,11 @@ public class NewOrderAdsForBookActivity extends AppCompatActivity {
 
         AdsBook adsBook = this.getIntent().getParcelableExtra("adsBook");
 
-        getSupportActionBar().setTitle(adsBook.getBook().getTitle());
-        getSupportActionBar().setSubtitle("Edizione: " + adsBook.getBook().getEdition());
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText(adsBook.getBook().getTitle());
+
+        //getSupportActionBar().setSubtitle("Edizione: " + adsBook.getBook().getEdition());
 
         binding.adsListview.setAdapter(new NewOrderAdsListAdapter(this, adsBook.getAds()));
 

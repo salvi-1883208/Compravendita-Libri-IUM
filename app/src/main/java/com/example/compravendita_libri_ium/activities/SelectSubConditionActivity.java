@@ -1,13 +1,15 @@
 package com.example.compravendita_libri_ium.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.BookCondition;
 import com.example.compravendita_libri_ium.BookSubCondition;
@@ -16,8 +18,6 @@ import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.databinding.ActivitySelectSubConditionBinding;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Predicate;
 
 public class SelectSubConditionActivity extends AppCompatActivity {
 
@@ -31,8 +31,9 @@ public class SelectSubConditionActivity extends AppCompatActivity {
 
         NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
-        getSupportActionBar().setTitle("Passo 3: Condizioni specifiche");
-
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 3: Condizioni specifiche");
 
         if (builder.getBookCondition() == BookCondition.BUONE_CONDIZIONI)
             buoneCondizioni(builder);

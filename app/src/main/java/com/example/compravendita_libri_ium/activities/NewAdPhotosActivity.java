@@ -13,7 +13,9 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -53,10 +55,13 @@ public class NewAdPhotosActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+
         if (builder.hasSubCondition())
-            getSupportActionBar().setTitle("Passo 4: Foto del libro");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 4: Foto del libro");
         else
-            getSupportActionBar().setTitle("Passo 3: Foto del libro");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 3: Foto del libro");
     }
 
     @Override

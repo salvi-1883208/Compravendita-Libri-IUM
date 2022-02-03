@@ -1,5 +1,6 @@
 package com.example.compravendita_libri_ium.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.compravendita_libri_ium.BookCondition;
 import com.example.compravendita_libri_ium.NewAdBuilder;
@@ -28,7 +30,9 @@ public class SelectConditionActivity extends AppCompatActivity {
         binding = ActivitySelectConditionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().setTitle("Passo 2: Condizioni libro");
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 2: Condizioni libro");
 
         NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
 

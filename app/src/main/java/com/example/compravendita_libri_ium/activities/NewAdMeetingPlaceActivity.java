@@ -6,7 +6,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.MeetingPlace;
@@ -87,11 +89,13 @@ public class NewAdMeetingPlaceActivity extends AppCompatActivity {
                 binding.meetingPlaceContinuaButton.setVisibility(View.GONE);
             }
         });
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
 
         if (builder.hasSubCondition())
-            getSupportActionBar().setTitle("Passo 6: Punto d'incontro");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 6: Punto d'incontro");
         else
-            getSupportActionBar().setTitle("Passo 5: Punto d'incontro");
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Passo 5: Punto d'incontro");
     }
 
     @Override

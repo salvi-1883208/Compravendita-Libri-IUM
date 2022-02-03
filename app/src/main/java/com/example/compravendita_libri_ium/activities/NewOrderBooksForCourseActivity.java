@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.Course;
@@ -28,7 +29,10 @@ public class NewOrderBooksForCourseActivity extends AppCompatActivity {
 
         Course course = this.getIntent().getParcelableExtra("course");
 
-        getSupportActionBar().setTitle("Libri suggeriti: " + course.getCourseName());
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+        ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText("Libri suggeriti: " + course.getCourseName());
+
         //TODO cambiare l'ordine per far vedere prima quelli con disponibilità?
         NewOrderBookForCourseListAdapter adapter = new NewOrderBookForCourseListAdapter(this, course.getAdsBook());
         binding.cursesListview.setAdapter(adapter);

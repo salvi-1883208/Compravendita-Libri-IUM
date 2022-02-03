@@ -6,13 +6,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.compravendita_libri_ium.Book;
 import com.example.compravendita_libri_ium.BookSubCondition;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.R;
@@ -62,7 +62,9 @@ public class BookProfileActivity extends AppCompatActivity {
             binding.price.setText(order.getAdBase().getPriceString());
             binding.timeLeft.setText(timeLeft(order));
 
-            getSupportActionBar().setTitle(order.getAdBase().getUsedBook().getTitle());
+            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setCustomView(R.layout.custom_tool_bar);
+            ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.toolbar_title)).setText(order.getAdBase().getUsedBook().getTitle());
         }
     }
 
