@@ -50,8 +50,9 @@
             android:layout_alignParentEnd="true"
             android:autoSizeMinTextSize="10dp"
             android:autoSizeTextType="uniform"
-            android:gravity="end"
-            android:paddingHorizontal="15dp"
+            android:autoSizeMaxTextSize="15dp"
+            android:gravity="end|center_vertical"
+            android:paddingHorizontal="10dp"
             android:text="5 ore alla scadenza"
             android:textStyle="bold" />
     </RelativeLayout>

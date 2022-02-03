@@ -44,18 +44,18 @@
                     android:lineSpacingExtra="3dp"
                     android:text="Info sul libro \n infosul libro \n info sul libroooooooo" />
 
+
                 <TextView
                     android:id="@+id/ads_approvation"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/ads_book_infos"
                     android:layout_alignParentEnd="true"
-                    android:layout_toEndOf="@id/ads_book_infos"
-                    android:autoSizeMinTextSize="10dp"
-                    android:autoSizeTextType="uniform"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="2dp"
                     android:gravity="end"
-                    android:paddingHorizontal="15dp"
                     android:text="In attesa di approvazione"
+                    android:textSize="13dp"
                     android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
