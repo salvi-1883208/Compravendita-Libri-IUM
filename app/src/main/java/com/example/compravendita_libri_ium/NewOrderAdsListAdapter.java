@@ -24,7 +24,6 @@ public class NewOrderAdsListAdapter extends ArrayAdapter<Ad> {
 
         Ad ad = this.getItem(position);
 
-        System.out.println("\n" + ad + "\n");
         if (convertView == null)         //???
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.new_order_item_ads_book, parent, false);
 

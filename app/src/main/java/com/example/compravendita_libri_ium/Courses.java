@@ -14,4 +14,11 @@ public enum Courses {
     public Course getCourse() {
         return course;
     }
+
+    public void removeAd(Ad ad1) {
+        for (AdsBook adsBook : course.getAdsBook())
+            for (Ad ad : adsBook.getAds())
+                if (ad1.equals(ad))
+                    course.removeAd(ad1);
+    }
 }

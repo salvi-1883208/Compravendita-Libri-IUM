@@ -31,6 +31,10 @@ public class AdsBook implements Parcelable {
         return ads.size();
     }
 
+    public boolean removeAd(Ad ad) {
+        return ads.remove(ad);
+    }
+
 
     @Override
     public int describeContents() {
