@@ -3,6 +3,7 @@ package com.example.compravendita_libri_ium.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,8 +39,10 @@ public class MeetingPlaceMapActivity extends AppCompatActivity {
 
         binding.meetingPlaceContinuaButton.setOnClickListener(view -> {
             Intent intent;
-            if (this.getIntent().getBooleanExtra("start", true))
+            if (this.getIntent().getBooleanExtra("start", true)) {
                 intent = new Intent(getApplicationContext(), HomeActivity.class);
+                Toast.makeText(getApplicationContext(), "Libro ordinato", Toast.LENGTH_LONG).show();
+            }
             else
                 intent = new Intent(getApplicationContext(), OrdersActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
