@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.compravendita_libri_ium.Ad;
+import com.example.compravendita_libri_ium.Courses;
 import com.example.compravendita_libri_ium.MyActiveOrders;
 import com.example.compravendita_libri_ium.databinding.ActivityMeetingPlaceMapBinding;
 
@@ -46,8 +47,10 @@ public class MeetingPlaceMapActivity extends AppCompatActivity {
             else
                 intent = new Intent(getApplicationContext(), OrdersActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
             MyActiveOrders.getInstance().addOrder(Ad.toOrder(ad));
+            for (Courses courses : Courses.values())
+                courses.removeAd(ad);
+            startActivity(intent);
         });
     }
 }

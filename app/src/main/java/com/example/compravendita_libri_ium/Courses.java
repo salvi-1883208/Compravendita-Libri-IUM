@@ -14,4 +14,8 @@ public enum Courses {
     public Course getCourse() {
         return course;
     }
+
+    public void removeAd(Ad ad) {
+        course.removeAd(ad);
+    }
 }

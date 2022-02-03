@@ -3,9 +3,6 @@ package com.example.compravendita_libri_ium;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Order implements Parcelable {
 
     private int timeRemaining = 10080; //In minutes
@@ -49,7 +46,12 @@ public class Order implements Parcelable {
 
         Order order = (Order) o;
 
-        return adBase.equals(order.getAdBase());
+        return adBase.equals(order.getAdBase()) && order.seller.equals(seller);
+    }
+
+    @Override
+    public String toString() {
+        return adBase.toString() + "\n" + seller.toString();
     }
 
     @Override

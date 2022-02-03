@@ -8,16 +8,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:contentDescription="@string/logo__sapienza"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="239dp"
+        android:layout_height="239dp"
+        android:contentDescription="@string/logo_App"
+        app:layout_constraintBottom_toBottomOf="@id/vendi_libri"
+        app:layout_constraintEnd_toEndOf="@id/vendi_libri"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/vendi_libri"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06"
-        app:srcCompat="@drawable/sapienza_logo" />
+        app:layout_constraintVertical_bias="0.029999971"
+        app:srcCompat="@drawable/logo_app" />
 
     <LinearLayout
         android:id="@+id/vendi_libri"
@@ -38,7 +38,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/icons"
             android:src="@drawable/dollar_symbol"></ImageView>
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_marginStart="3dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/icons"
             android:src="@drawable/buy"></ImageView>
         <TextView
             android:layout_width="wrap_content"
@@ -102,7 +102,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/icons"
             android:src="@drawable/announcement"></ImageView>
         <TextView
             android:layout_width="wrap_content"
@@ -134,7 +134,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:contentDescription="@string/todo"
+            android:contentDescription="@string/icons"
             android:src="@drawable/order"></ImageView>
         <TextView
             android:layout_width="wrap_content"

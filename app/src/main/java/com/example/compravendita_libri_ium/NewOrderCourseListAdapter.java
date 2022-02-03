@@ -33,7 +33,7 @@ public class NewOrderCourseListAdapter extends ArrayAdapter<Course> {
             convertView.findViewById(R.id.view_non_disponibile).setVisibility(View.VISIBLE);
 
         courseName.setText(course.getCourseName());
-        suggestedBooksNumber.setText(Integer.toString(course.getSuggestedBooks()) +
+        suggestedBooksNumber.setText(course.getSuggestedBooks() +
                 (course.getSuggestedBooks() == 1 ? " libro suggerito" : " libri suggeriti"));
 
         return convertView;

@@ -43,7 +43,7 @@ public class BookProfileActivity extends AppCompatActivity {
             binding.recyclerImages.addOnItemTouchListener(new RecyclerItemClickListener(this, binding.recyclerImages, new RecyclerItemClickListener.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
-                    //Toast.makeText(BookProfileActivity.this, "clicked on " +position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BookProfileActivity.this, "clicked on " +position, Toast.LENGTH_SHORT).show();
                     //Intent intent = new Intent(BookProfileActivity.this, CLASSE_FATTA_APPOSTA_PER_MOSTRARE_IMMAGINE_BIG.class);
                     //startActivity(intent);
                 }

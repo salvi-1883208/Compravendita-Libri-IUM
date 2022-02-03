@@ -28,6 +28,7 @@ public class Course implements Parcelable {
                         adBook.addAd(ad.getAd());
                         availableBooks++;
                     }
+
         suggestedBooks = adsBook.size();
     }
 
@@ -45,6 +46,12 @@ public class Course implements Parcelable {
 
     public int getSuggestedBooks() {
         return suggestedBooks;
+    }
+
+    public void removeAd(Ad ad) {
+        for (AdsBook adsBook : adsBook)
+            if (adsBook.removeAd(ad))
+                availableBooks--;
     }
 
 
