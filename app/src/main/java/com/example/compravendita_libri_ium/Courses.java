@@ -15,10 +15,7 @@ public enum Courses {
         return course;
     }
 
-    public void removeAd(Ad ad1) {
-        for (AdsBook adsBook : course.getAdsBook())
-            for (Ad ad : adsBook.getAds())
-                if (ad1.equals(ad))
-                    course.removeAd(ad1);
+    public void removeAd(Ad ad) {
+        course.removeAd(ad);
     }
 }

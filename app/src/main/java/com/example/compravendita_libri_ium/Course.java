@@ -49,8 +49,9 @@ public class Course implements Parcelable {
     }
 
     public void removeAd(Ad ad) {
-        adsBook.remove(ad);
-        availableBooks--;
+        for (AdsBook adsBook : adsBook)
+            if (adsBook.removeAd(ad))
+                availableBooks--;
     }
 
 
