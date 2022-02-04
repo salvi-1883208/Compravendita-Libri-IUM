@@ -52,7 +52,7 @@ public class MeetingPlaceMapActivity extends AppCompatActivity {
             Intent intent;
             if (this.getIntent().getBooleanExtra("start", true)) {
                 intent = new Intent(getApplicationContext(), HomeActivity.class);
-                Toast.makeText(getApplicationContext(), "Libro ordinato", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Ordine effettuato", Toast.LENGTH_LONG).show();
             } else
                 intent = new Intent(getApplicationContext(), OrdersActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
