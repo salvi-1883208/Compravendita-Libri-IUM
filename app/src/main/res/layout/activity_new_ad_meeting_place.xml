@@ -129,6 +129,6 @@
         android:text="Continua"
         android:textAllCaps="false"
         android:textSize="24dp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
 </RelativeLayout>
