@@ -83,9 +83,9 @@ public class SelectSubConditionActivity extends AppCompatActivity {
             if (binding.checkBox1.isChecked())
                 subConditions.add(BookSubCondition.EVIDENZ_INDELEB);
             if (binding.checkBox2.isChecked())
-                subConditions.add(BookSubCondition.APPUNTI_SU_PAGINE);
-            if (binding.checkBox3.isChecked())
                 subConditions.add(BookSubCondition.PAGINE_ROVINATE);
+            if (binding.checkBox3.isChecked())
+                subConditions.add(BookSubCondition.APPUNTI_SU_PAGINE);
 
             builder.setSubCondition(subConditions);
             Intent intent = new Intent(SelectSubConditionActivity.this, NewAdPhotosActivity.class);
