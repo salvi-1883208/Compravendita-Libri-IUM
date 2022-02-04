@@ -41,7 +41,7 @@ public class NewOrderAdDetailsActivity extends AppCompatActivity {
         binding.ratingBar.setRating(ad.getSeller().getReputation());
         binding.moreInfoLibro.setText(adConditions(ad));
         binding.price.setText(ad.getAdBase().getPriceString());
-        binding.meetingPlace.setText(ad.getAdBase().getMeetingPlace().toString());
+        //binding.meetingPlace.setText(ad.getAdBase().getMeetingPlace().toString());
         binding.newOrderAcquistaButton.setText("Acquista ora: " + ad.getAdBase().getPriceString());
         binding.newOrderAcquistaButton.setOnClickListener(view -> {
             Intent intent = new Intent(NewOrderAdDetailsActivity.this, MeetingPlaceMapActivity.class);

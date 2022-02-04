@@ -153,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/view7"
-            android:layout_marginLeft="45dp"
+            android:layout_alignStart="@id/view1"
             android:layout_marginTop="15dp" />
 
         <TextView

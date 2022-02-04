@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/info_libro"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="38dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -118,40 +118,12 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/view5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/more_info_libro"
-            android:layout_alignStart="@id/view3"
-            android:layout_marginTop="10dp"
-            android:text="Luogo d'incontro:"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/meeting_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view5"
-            android:layout_alignStart="@id/view5"
-            android:text="Edificio la sapienza di roma -CUOAI"
-            android:textSize="18dp" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@id/meeting_place"
-            android:layout_alignStart="@id/view1"
-            android:layout_marginVertical="15dp"
-            android:background="#969FAA" />
-
-        <TextView
             android:id="@+id/view6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line2"
+            android:layout_below="@id/more_info_libro"
             android:layout_alignStart="@id/view1"
+            android:layout_marginTop="8dp"
             android:text="Prezzo: "
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -160,7 +132,8 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/line2"
+            android:layout_below="@+id/more_info_libro"
+            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/view6"
             android:text="12€"
             android:textSize="18dp" />
@@ -189,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/view7"
-            android:layout_marginStart="45dp"
+            android:layout_alignStart="@id/view1"
             android:layout_marginTop="15dp" />
 
 

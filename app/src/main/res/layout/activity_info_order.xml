@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/info_libro"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="38dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -187,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/view7"
-            android:layout_marginLeft="45dp"
+            android:layout_alignStart="@id/view1"
             android:layout_marginTop="15dp" />
 
         <TextView
