@@ -57,7 +57,7 @@ public class NewAdPhotosActivity extends AppCompatActivity {
 
         binding.addPhotoContinuaButton.setOnClickListener(view -> {
             Intent intent = new Intent(NewAdPhotosActivity.this, NewAdPriceActivity.class);
-            intent.putExtra("builder", builder.addPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
+            intent.putExtra("builder", builder.setPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
             startActivity(intent);
         });
 
