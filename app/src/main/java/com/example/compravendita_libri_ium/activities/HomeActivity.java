@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(OpenOrdini);
 
             //startActivity(OpenOrdini, ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_up_from_bottom, R.anim.slide_down_from_top).toBundle());
-            overridePendingTransition(R.anim.slide_up_from_bottom, R.anim.slide_down_from_top);
+            overridePendingTransition(R.anim.slide_up_from_bottom, R.anim.stay_still_anim);
         });
 
         binding.annunciInseriti.setOnClickListener(view -> {
