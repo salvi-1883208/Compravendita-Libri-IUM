@@ -19,6 +19,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.compravendita_libri_ium.AdBase;
 import com.example.compravendita_libri_ium.BottomSheetDialog;
 import com.example.compravendita_libri_ium.NewAdBuilder;
 import com.example.compravendita_libri_ium.R;
@@ -26,6 +27,7 @@ import com.example.compravendita_libri_ium.RecyclerViewAddPhotoAdapter;
 import com.example.compravendita_libri_ium.databinding.ActivityNewAdPhotosBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NewAdPhotosActivity extends AppCompatActivity {
 
@@ -34,7 +36,6 @@ public class NewAdPhotosActivity extends AppCompatActivity {
 
     public Uri uri;
 
-    //TODO aggiungere foto tramite fotocamera
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +44,20 @@ public class NewAdPhotosActivity extends AppCompatActivity {
 
         bottomSheetDialog = new BottomSheetDialog(this);
 
-        NewAdBuilder builder = (NewAdBuilder) this.getIntent().getParcelableExtra("builder");
+        NewAdBuilder builder = this.getIntent().getParcelableExtra("builder");
 
         RecyclerViewAddPhotoAdapter adapter = new RecyclerViewAddPhotoAdapter(this, new ArrayList<>(), binding.addPhotoContinuaButton, bottomSheetDialog);
+
+        //TODO FOTO STANDARD PER EVITARE DI DOVER METTERE LE FOTO NEI TEST DELL'APP (DA RIMUOVERE)
+        //-------------------------------------------------------------------------------------------------------
+        adapter.addPhotos(new ArrayList<Uri>(Arrays.asList(AdBase.drawableToUri(R.drawable.image_for_tests))));
+        //-------------------------------------------------------------------------------------------------------
         binding.recyclerPhotos.setAdapter(adapter);
         binding.recyclerPhotos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         binding.addPhotoContinuaButton.setOnClickListener(view -> {
             Intent intent = new Intent(NewAdPhotosActivity.this, NewAdPriceActivity.class);
-            intent.putExtra("builder", builder.setPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
+            intent.putExtra("builder", builder.addPhotos(((RecyclerViewAddPhotoAdapter) binding.recyclerPhotos.getAdapter()).getPhotos()));
             startActivity(intent);
         });
 

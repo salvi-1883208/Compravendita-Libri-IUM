@@ -1,6 +1,5 @@
 package com.example.compravendita_libri_ium.activities;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -49,7 +48,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(OpenOrdini);
 
             //startActivity(OpenOrdini, ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_up_from_bottom, R.anim.slide_down_from_top).toBundle());
-            overridePendingTransition(R.anim.slide_up_from_bottom, R.anim.stay_still_anim);
+            //TODO Animazioni
+            //overridePendingTransition(R.anim.slide_up_from_bottom, R.anim.stay_still_anim);
         });
 
         binding.annunciInseriti.setOnClickListener(view -> {

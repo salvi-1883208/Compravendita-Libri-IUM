@@ -57,6 +57,11 @@ public class NewAdBuilder implements Parcelable {
         return this;
     }
 
+    public NewAdBuilder addPhotos(ArrayList<Uri> photos) {
+        this.photos.addAll(photos);
+        return this;
+    }
+
     public BookCondition getBookCondition() {
         return bookCondition;
     }
