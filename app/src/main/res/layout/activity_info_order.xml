@@ -10,6 +10,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/trash_can"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/view1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/trash_can_icon" />
+
         <TextView
             android:id="@+id/view1"
             android:layout_width="wrap_content"
@@ -197,8 +206,10 @@
             android:layout_below="@id/recycler_images"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
             android:text="Libro riservato ancora per: 1 giorno"
             android:textSize="18dp"
+            android:paddingBottom="10dp"
             android:textStyle="bold" />
     </RelativeLayout>
 

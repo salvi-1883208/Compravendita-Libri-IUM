@@ -10,10 +10,13 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.compravendita_libri_ium.ActiveAds;
 import com.example.compravendita_libri_ium.BookSubCondition;
+import com.example.compravendita_libri_ium.MyActiveOrders;
 import com.example.compravendita_libri_ium.Order;
 import com.example.compravendita_libri_ium.R;
 import com.example.compravendita_libri_ium.RecyclerItemClickListener;
@@ -60,7 +63,28 @@ public class BookProfileActivity extends AppCompatActivity {
             binding.moreInfoLibro.setText(orderConditions(order));
             binding.meetingPlace.setText(order.getAdBase().getMeetingPlace().toString());
             binding.price.setText(order.getAdBase().getPriceString());
-            binding.timeLeft.setText(timeLeft(order));
+            if (order.isDeleting())
+                binding.timeLeft.setText("Richiesta di annullamento inviata");
+            else
+                binding.timeLeft.setText(timeLeft(order));
+            if (!order.isDeleting() && !order.isCompleted())
+                binding.trashCan.setOnClickListener(view -> {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(BookProfileActivity.this);
+                    builder.setPositiveButton("Sì", (dialog, id) -> {
+                        // User clicked OK button
+                        for (Order order1 : MyActiveOrders.getInstance().getOrders())
+                            if (order1.equals(order))
+                                order1.delete();
+                        finish();
+                    });
+                    builder.setNegativeButton("No", (dialog, id) -> {
+                    });
+                    builder.setTitle("Sei sicuro di voler annullare l'ordine?");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                });
+            else
+                binding.trashCan.setVisibility(View.GONE);
 
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getSupportActionBar().setCustomView(R.layout.custom_tool_bar);

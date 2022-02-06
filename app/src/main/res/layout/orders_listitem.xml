@@ -48,12 +48,13 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/layout2"
             android:layout_alignParentEnd="true"
+            android:autoSizeMaxTextSize="15dp"
             android:autoSizeMinTextSize="10dp"
             android:autoSizeTextType="uniform"
-            android:autoSizeMaxTextSize="15dp"
             android:gravity="end|center_vertical"
-            android:paddingHorizontal="10dp"
+            android:paddingHorizontal="6dp"
             android:text="5 ore alla scadenza"
+            android:layout_marginBottom="-1dp"
             android:textStyle="bold" />
     </RelativeLayout>
 

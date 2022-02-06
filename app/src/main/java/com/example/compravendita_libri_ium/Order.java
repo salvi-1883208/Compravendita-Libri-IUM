@@ -9,6 +9,7 @@ public class Order implements Parcelable {
     private boolean completed = false;
     private Seller seller;
     private AdBase adBase;
+    private boolean deleting = false;
 
     public Order(AdBase adBase, Seller seller) {
         this.seller = seller;
@@ -29,6 +30,14 @@ public class Order implements Parcelable {
 
     public int getTimeRemaining() {
         return timeRemaining;
+    }
+
+    public void delete() {
+        deleting = true;
+    }
+
+    public boolean isDeleting() {
+        return deleting;
     }
 
     public Order complete() {
@@ -54,6 +63,7 @@ public class Order implements Parcelable {
         return adBase.toString() + "\n" + seller.toString();
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -65,6 +75,7 @@ public class Order implements Parcelable {
         dest.writeByte(this.completed ? (byte) 1 : (byte) 0);
         dest.writeParcelable(this.seller, flags);
         dest.writeParcelable(this.adBase, flags);
+        dest.writeByte(this.deleting ? (byte) 1 : (byte) 0);
     }
 
     public void readFromParcel(Parcel source) {
@@ -72,6 +83,7 @@ public class Order implements Parcelable {
         this.completed = source.readByte() != 0;
         this.seller = source.readParcelable(Seller.class.getClassLoader());
         this.adBase = source.readParcelable(AdBase.class.getClassLoader());
+        this.deleting = source.readByte() != 0;
     }
 
     protected Order(Parcel in) {
@@ -79,9 +91,10 @@ public class Order implements Parcelable {
         this.completed = in.readByte() != 0;
         this.seller = in.readParcelable(Seller.class.getClassLoader());
         this.adBase = in.readParcelable(AdBase.class.getClassLoader());
+        this.deleting = in.readByte() != 0;
     }
 
-    public static final Parcelable.Creator<Order> CREATOR = new Parcelable.Creator<Order>() {
+    public static final Creator<Order> CREATOR = new Creator<Order>() {
         @Override
         public Order createFromParcel(Parcel source) {
             return new Order(source);

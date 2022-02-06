@@ -41,6 +41,12 @@ public class OrdersListAdapter extends ArrayAdapter<Order> {
         imageView.setImageURI(order.getAdBase().getPhotos().get(0));
         bookTitle.setText(order.getAdBase().getUsedBook().getTitle());
         bookEditionPrice.setText(editionPriceInfo(order));
+        if (order.isDeleting()) {
+            orders_expiring_time.setText("Annullamento in corso");
+            orders_expiring_time.setTypeface(null, Typeface.BOLD);
+            return convertView;
+        }
+
         if (order.isCompleted()) {
             orders_expiring_time.setText("Ordine Completato");
             orders_expiring_time.setTypeface(null, Typeface.BOLD);

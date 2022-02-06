@@ -53,6 +53,14 @@ public class OrdersActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onRestart() {
+        super.onRestart();
+        //Do what you want on the refresh procedure here
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         menu.clear();

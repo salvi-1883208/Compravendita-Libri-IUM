@@ -33,6 +33,22 @@ public class Seller implements Parcelable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+
+        if (!(o instanceof Seller))
+            return false;
+
+        Seller seller = (Seller) o;
+
+        return seller.getName().equalsIgnoreCase(name) &&
+                seller.getId() == id &&
+                seller.getReputation() == reputation;
+    }
+
+
+    @Override
     public int describeContents() {
         return 0;
     }
